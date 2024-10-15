@@ -9,8 +9,7 @@ export const Hero = () => {
         <div className="">
           <Image
             src={heroImg}
-            width="616"
-            height="617"
+            width="400"
             className={"object-cover"}
             alt="Hero Illustration"
             loading="eager"
