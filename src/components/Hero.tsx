@@ -23,7 +23,7 @@ export const Hero = () => {
           {/* <h1 className="text-4xl font-bold leading-snug tracking-tight text-gray-800 lg:text-4xl lg:leading-tight xl:text-6xl xl:leading-tight dark:text-white">
             Jvanah
           </h1> */}
-          <p className="py-5 text-xl leading-normal text-primary lg:text-xl xl:text-2xl dark:text-gray-300">
+          <p className="py-5 text-xl leading-normal text-primary lg:text-xl xl:text-2xl ">
             The Jvanah Initiative is dedicated to empowering women and girls
             globally, with a particular focus on those in Afghanistan. We
             believe that education is a fundamental right and a powerful tool

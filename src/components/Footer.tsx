@@ -7,7 +7,7 @@ export function Footer() {
   return (
     <div className="relative">
       <Container>
-        <div className="flex justify-center max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-primaryGreen dark:border-trueGray-700 lg:grid-cols-5">
+        <div className="flex justify-center max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-primaryGreen  lg:grid-cols-5">
           {/* <div className="lg:col-span-2">
             <div>
               {" "}
@@ -37,7 +37,7 @@ export function Footer() {
 
           <div className="flex flex-col items-center text-primary">
             <div>Follow us</div>
-            <div className="flex mt-5 space-x-10 dark:text-gray-500">
+            <div className="flex mt-5 space-x-10 ">
               <a
                 href="mailto:jvanah.se@gmail.com"
                 target="_blank"
@@ -74,7 +74,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="my-10 text-sm text-center text-gray-600 dark:text-gray-400 mt-20">
+        <div className="my-10 text-sm text-center text-primary  mt-20">
           Copyright © {new Date().getFullYear()}. Made with ♥ by{" "}
           <a href="https://rezaa.vercel.app/" target="_blank" rel="noopener">
             Rezaavoor
