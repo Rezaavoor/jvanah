@@ -7,7 +7,7 @@ export function Footer() {
   return (
     <div className="relative">
       <Container>
-        <div className="flex justify-center max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 border-t border-primaryGreen  lg:grid-cols-5">
+        <div className="flex justify-center max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5  border-primaryGreen  lg:grid-cols-5">
           {/* <div className="lg:col-span-2">
             <div>
               {" "}

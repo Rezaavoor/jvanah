@@ -82,7 +82,7 @@ export const Navbar = () => {
               <li className="mr-3 nav__item" key={index}>
                 <Link
                   href="/"
-                  className="inline-block px-4 py-2 text-lg font-normal text-primary no-underline rounded-md  hover:bg-primary hover:text-lighterGreen focus:text-lighterGreen focus:bg-indigo-100 focus:outline-none "
+                  className="inline-block px-4 py-2 text-lg font-normal text-primary no-underline rounded-md  hover:bg-primary hover:text-lighterGreen focus:text-lighterGreen focus:bg-primary focus:outline-none "
                 >
                   {menu}
                 </Link>
