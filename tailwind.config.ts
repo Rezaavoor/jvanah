@@ -15,6 +15,11 @@ const config: Config = {
     extend: {
       colors: {
         trueGray: colors.neutral,
+        primaryGreen: "#5CA350",
+        lightGreen: "#D1EDCC",
+        lighterGreen: "#DEECDC",
+        primary: "#2A3243",
+        secondary: "#E3EBEC",
       },
     },
     fontFamily: {

@@ -26,7 +26,7 @@ export default function RootLayout({
           <Navbar />
           <div>{children}</div>
           <Footer />
-          <PopupWidget />
+          {/* <PopupWidget /> */}
         </ThemeProvider>
       </body>
     </html>
