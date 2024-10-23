@@ -32,16 +32,15 @@ export const Navbar = () => {
       ${isScrolled ? "border-b-2 border-primary" : "border-none"}
        z-50`}
     >
-      <nav className="container relative flex flex-wrap items-center justify-between p-4 mx-auto lg:justify-between xl:px-1">
+      <nav className="container relative flex flex-wrap items-center justify-between p-2 lg:p-4 mx-auto lg:justify-between xl:px-1">
         {/* Logo  */}
         <Link href="/">
-          <span className="flex items-end space-x-2 text-2xl font-medium text-primary transition-all duration-500 ease-in-out hover:scale-125">
+          <span className="flex items-end space-x-2 text-2xl font-medium text-primary transition-all duration-500 ease-in-out hover:scale-125 relative w-14 h-14 ">
             <span>
               <Image
                 src="/img/jvanah/logo.svg"
-                width="32"
+                fill={true}
                 alt="N"
-                height="32"
                 className="w-16"
               />
             </span>
