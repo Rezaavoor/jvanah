@@ -13,7 +13,7 @@ export function Video({ videoId }: Readonly<VideoProps>) {
 
   return (
     <Container>
-      <div className="relative w-full h-[500px] max-w-4xl mx-auto overflow-hidden lg:mb-20 rounded-2xl bg-indigo-300 cursor-pointer bg-gradient-to-tr from-purple-400 to-indigo-700">
+      <div className="relative w-full h-[500px] max-w-4xl mx-auto overflow-hidden lg:mb-20 rounded-2xl bg-primaryGreen cursor-pointer bg-gradient-to-tr from-primaryGreen to-lightGreen">
         {!playVideo && (
           <button
             onClick={() => setPlayVideo(!playVideo)}
@@ -36,8 +36,8 @@ export function Video({ videoId }: Readonly<VideoProps>) {
         )}
         {playVideo && (
           <iframe
-            src={`https://www.youtube-nocookie.com/embed/${videoId}?controls=0&autoplay=1`}
-            title="YouTube video player"
+            src={`./img/jvanah/${videoId}`}
+            title="Video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             className="w-full h-full aspect-video"
           ></iframe>
