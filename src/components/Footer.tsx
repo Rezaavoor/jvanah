@@ -55,7 +55,7 @@ export function Footer() {
                 <Facebook size={32} />
               </a>
               <a
-                href="https://www.instagram.com/jvanah.se/"
+                href="https://www.instagram.com/jvanah_organisation/"
                 target="_blank"
                 rel="noopener"
               >
