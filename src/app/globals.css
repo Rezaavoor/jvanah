@@ -9,6 +9,11 @@
   body {
     /* @apply dark:bg-trueGray-900; */
     background: #DEECDC; /*lighterGreen*/
+    
+    @media screen and (max-width: 640px) {
+      font-size: small;
+      
+    }
   }
 }
 

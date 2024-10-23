@@ -17,7 +17,7 @@ export default function Home() {
     <Container>
       <Hero />
       {/* First Image */}
-      <div className="flex mb-16 p-0 lg:p-16 flex-col lg:flex-row lg:border-none border-b-2 border-primaryGreen border-spacing-6">
+      <div className="flex p-8 lg:p-16 flex-col lg:flex-row lg:border-none border-b-2 border-primaryGreen border-spacing-6">
         <div className="flex-1 relative ">
           <div className="w-full sm:w-1/2 lg:w-2/3 relative h-full m-auto lg:ml-0">
             <Image
@@ -49,7 +49,7 @@ export default function Home() {
         </div>
       </div>
       {/* Second Image */}
-      <div className="flex mb-16 p-0 lg:p-16 flex-col lg:flex-row lg:border-none border-b-2 border-primaryGreen border-spacing-6">
+      <div className="flex p-8 lg:p-16 flex-col lg:flex-row lg:border-none border-b-2 border-primaryGreen border-spacing-6">
         <div
           className="flex-1 items-center 
  "
@@ -81,7 +81,7 @@ export default function Home() {
         </div>
       </div>
       {/* Third Image */}
-      <div className="flex mb-16 p-0 lg:p-16 flex-col lg:flex-row lg:border-none border-b-2 border-primaryGreen border-spacing-6">
+      <div className="flex p-8 lg:p-16 flex-col lg:flex-row lg:border-none border-b-2 border-primaryGreen border-spacing-6">
         <div className="flex-1 relative ">
           <div className="w-full sm:w-1/2 lg:w-2/3 relative h-full m-auto lg:ml-0">
             <Image
@@ -114,7 +114,7 @@ export default function Home() {
         </div>
       </div>
       {/* Fourth Image */}
-      <div className="flex mb-16 p-0 lg:p-16 flex-col lg:flex-row lg:border-none border-b-2 border-primaryGreen border-spacing-6">
+      <div className="flex p-8 lg:p-16 flex-col lg:flex-row lg:border-none border-b-2 border-primaryGreen border-spacing-6">
         <div
           className="flex-1 items-center 
  "
