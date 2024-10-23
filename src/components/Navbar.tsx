@@ -3,23 +3,43 @@ import Link from "next/link";
 import ThemeChanger from "./DarkSwitch";
 import Image from "next/image";
 import { Disclosure } from "@headlessui/react";
+import { useEffect, useState } from "react";
 
 export const Navbar = () => {
-  const navigation = ["About Jvanah", "What We Do", "How To Support"];
+  const [isScrolled, setIsScrolled] = useState(window.scrollY > 50);
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 50); // Change 50 to whatever scroll threshold you want
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const navigation = ["About Us", "What We Do", "How To Support"];
 
   return (
-    <div className="w-full">
-      <nav className="container relative flex flex-wrap items-center justify-between p-8 mx-auto lg:justify-between xl:px-1">
+    <div
+      className={`w-screen fixed transition-all duration-500 ease-in-out ${
+        isScrolled ? "bg-lightGreen" : "bg-none"
+      }
+      ${isScrolled ? "border-b-2 border-primary" : "border-none"}
+       z-50`}
+    >
+      <nav className="container relative flex flex-wrap items-center justify-between p-4 mx-auto lg:justify-between xl:px-1">
         {/* Logo  */}
         <Link href="/">
-          <span className="flex items-end space-x-2 text-2xl font-medium text-primary ">
+          <span className="flex items-end space-x-2 text-2xl font-medium text-primary transition-all duration-500 ease-in-out hover:scale-125">
             <span>
               <Image
                 src="/img/jvanah/logo.svg"
                 width="32"
                 alt="N"
                 height="32"
-                className="w-24"
+                className="w-16"
               />
             </span>
           </span>
@@ -82,7 +102,7 @@ export const Navbar = () => {
               <li className="mr-3 nav__item" key={index}>
                 <Link
                   href="/"
-                  className="inline-block px-4 py-2 text-lg font-normal text-primary no-underline rounded-md  hover:bg-primary hover:text-lighterGreen focus:text-lighterGreen focus:bg-primary focus:outline-none "
+                  className="inline-block px-4 py-2 text-lg font-normal text-primary no-underline rounded-md  hover:bg-primary hover:text-lighterGreen focus:text-lighterGreen focus:bg-primary focus:outline-none transition-all duration-200 ease-in-out"
                 >
                   {menu}
                 </Link>
