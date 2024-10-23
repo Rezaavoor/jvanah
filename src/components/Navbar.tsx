@@ -3,10 +3,13 @@ import Link from "next/link";
 import ThemeChanger from "./DarkSwitch";
 import Image from "next/image";
 import { Disclosure } from "@headlessui/react";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 
 export const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(window.scrollY > 50);
+  const [isScrolled, setIsScrolled] = useState(false);
+  useEffect(() => {
+    setIsScrolled(window.scrollY > 50);
+  }, []);
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
