@@ -24,7 +24,7 @@ export const Navbar = () => {
   return (
     <div
       className={`w-screen fixed transition-all duration-500 ease-in-out ${
-        isScrolled ? "bg-lightGreen" : "bg-none"
+        isScrolled ? "bg-lighterGreen" : "bg-none"
       }
       ${isScrolled ? "border-b-2 border-primary" : "border-none"}
        z-50`}
