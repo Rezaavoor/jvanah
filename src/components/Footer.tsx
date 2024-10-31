@@ -75,10 +75,7 @@ export function Footer() {
         </div>
 
         <div className="my-10 text-sm text-center text-primary  mt-20">
-          Copyright © {new Date().getFullYear()}. Made with ♥ by{" "}
-          <a href="https://rezaa.vercel.app/" target="_blank" rel="noopener">
-            Rezaavoor
-          </a>
+          Copyright © {new Date().getFullYear()}.
         </div>
       </Container>
     </div>
