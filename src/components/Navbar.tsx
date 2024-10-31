@@ -93,21 +93,21 @@ export const Navbar = () => {
                 <DisclosurePanel className="flex flex-col w-full mt-2 bg-lightGreen shadow-lg rounded-lg lg:hidden">
                   <Link
                     href="/about"
-                    onClick={close}
+                    onClick={() => close()}
                     className="w-full px-4 py-2 text-primary hover:bg-gray-100 focus:bg-gray-100 rounded-t-lg"
                   >
                     About Us
                   </Link>
                   <Link
                     href="/"
-                    onClick={close}
+                    onClick={() => close()}
                     className="w-full px-4 py-2 text-primary hover:bg-gray-100 focus:bg-gray-100"
                   >
                     What We Do
                   </Link>
                   <Link
                     href="/"
-                    onClick={close}
+                    onClick={() => close()}
                     className="w-full px-4 py-2 text-primary hover:bg-gray-100 focus:bg-gray-100 rounded-b-lg"
                   >
                     How To Support
