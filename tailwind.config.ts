@@ -21,6 +21,9 @@ const config: Config = {
         primary: "#2A3243",
         secondary: "#E3EBEC",
       },
+      backgroundImage: {
+        "profile-gradient": "linear-gradient(to bottom, #D1EDCC, #DEECDC)",
+      },
     },
     fontFamily: {
       sans: ["Inter", ...defaultTheme.fontFamily.sans],

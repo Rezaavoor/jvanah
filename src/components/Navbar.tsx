@@ -2,7 +2,11 @@
 import Link from "next/link";
 import ThemeChanger from "./DarkSwitch";
 import Image from "next/image";
-import { Disclosure } from "@headlessui/react";
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+} from "@headlessui/react";
 import { use, useEffect, useState } from "react";
 
 export const Navbar = () => {
@@ -22,14 +26,12 @@ export const Navbar = () => {
     };
   }, []);
 
-  const navigation = ["About Us", "What We Do", "How To Support"];
-
   return (
     <div
       className={`w-screen fixed transition-all duration-500 ease-in-out ${
         isScrolled ? "bg-lighterGreen" : "bg-none"
       }
-      ${isScrolled ? "border-b-2 border-primary" : "border-none"}
+      ${isScrolled ? "border-b-[1px] border-primaryGreen" : "border-none"}
        z-50`}
     >
       <nav className="container relative flex flex-wrap items-center justify-between p-2 lg:p-4 mx-auto lg:justify-between xl:px-1">
@@ -55,7 +57,7 @@ export const Navbar = () => {
         <Disclosure>
           {({ open }) => (
             <>
-              <Disclosure.Button
+              <DisclosureButton
                 aria-label="Toggle Menu"
                 className="px-2 py-1 text-primary rounded-md lg:hidden hover:text-white focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none "
               >
@@ -78,21 +80,30 @@ export const Navbar = () => {
                     />
                   )}
                 </svg>
-              </Disclosure.Button>
+              </DisclosureButton>
 
-              <Disclosure.Panel className="flex flex-wrap w-full my-5 lg:hidden">
+              <DisclosurePanel className="flex flex-wrap w-full my-5 lg:hidden">
                 <>
-                  {navigation.map((item, index) => (
-                    <Link
-                      key={index}
-                      href="/"
-                      className="w-full px-4 py-2 -ml-4 text-primary rounded-md  hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100  focus:outline-none"
-                    >
-                      {item}
-                    </Link>
-                  ))}
+                  <Link
+                    href="/about"
+                    className="w-full px-4 py-2 -ml-4 text-primary rounded-md  hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100  focus:outline-none"
+                  >
+                    About Us
+                  </Link>
+                  <Link
+                    href="/"
+                    className="w-full px-4 py-2 -ml-4 text-primary rounded-md  hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100  focus:outline-none"
+                  >
+                    What We Do
+                  </Link>
+                  <Link
+                    href="/"
+                    className="w-full px-4 py-2 -ml-4 text-primary rounded-md  hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100  focus:outline-none"
+                  >
+                    How To Support
+                  </Link>
                 </>
-              </Disclosure.Panel>
+              </DisclosurePanel>
             </>
           )}
         </Disclosure>
@@ -100,16 +111,30 @@ export const Navbar = () => {
         {/* menu  */}
         <div className="hidden text-center lg:flex lg:items-center">
           <ul className="items-center justify-end flex-1 pt-6 list-none lg:pt-0 lg:flex">
-            {navigation.map((menu, index) => (
-              <li className="mr-3 nav__item" key={index}>
-                <Link
-                  href="/"
-                  className="inline-block px-4 py-2 text-lg font-normal text-primary no-underline rounded-md  hover:bg-primary hover:text-lighterGreen focus:text-lighterGreen focus:bg-primary focus:outline-none transition-all duration-200 ease-in-out"
-                >
-                  {menu}
-                </Link>
-              </li>
-            ))}
+            <li className="mr-3 nav__item">
+              <Link
+                href="/about"
+                className="inline-block px-4 py-2 text-lg font-normal text-primary no-underline rounded-md  hover:bg-primary hover:text-lighterGreen focus:text-lighterGreen focus:bg-primary focus:outline-none transition-all duration-200 ease-in-out"
+              >
+                {"About Us"}
+              </Link>
+            </li>
+            <li className="mr-3 nav__item">
+              <Link
+                href="/"
+                className="inline-block px-4 py-2 text-lg font-normal text-primary no-underline rounded-md  hover:bg-primary hover:text-lighterGreen focus:text-lighterGreen focus:bg-primary focus:outline-none transition-all duration-200 ease-in-out"
+              >
+                {"What We Do"}
+              </Link>
+            </li>
+            <li className="mr-3 nav__item">
+              <Link
+                href="/"
+                className="inline-block px-4 py-2 text-lg font-normal text-primary no-underline rounded-md  hover:bg-primary hover:text-lighterGreen focus:text-lighterGreen focus:bg-primary focus:outline-none transition-all duration-200 ease-in-out"
+              >
+                {"How To Support"}
+              </Link>
+            </li>
           </ul>
         </div>
       </nav>
