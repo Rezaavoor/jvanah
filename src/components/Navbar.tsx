@@ -6,6 +6,7 @@ import {
   Disclosure,
   DisclosureButton,
   DisclosurePanel,
+  Transition,
 } from "@headlessui/react";
 import { use, useEffect, useState } from "react";
 
@@ -28,9 +29,7 @@ export const Navbar = () => {
 
   return (
     <div
-      className={`w-screen fixed transition-all duration-500 ease-in-out ${
-        isScrolled ? "bg-lighterGreen" : "bg-none"
-      }
+      className={`w-screen fixed transition-all duration-500 ease-in-out bg-lighterGreen
       ${isScrolled ? "border-b-[1px] border-primaryGreen" : "border-none"}
        z-50`}
     >
@@ -55,11 +54,11 @@ export const Navbar = () => {
         </div> */}
 
         <Disclosure>
-          {({ open }) => (
+          {({ open, close }) => (
             <>
               <DisclosureButton
                 aria-label="Toggle Menu"
-                className="px-2 py-1 text-primary rounded-md lg:hidden hover:text-white focus:text-indigo-500 focus:bg-indigo-100 focus:outline-none "
+                className="px-2 py-1 text-primary rounded-md lg:hidden hover:text-secondary focus:text-primaryGreen focus:bg-lightGreen focus:outline-none transition-all duration-200 ease-in-out"
               >
                 <svg
                   className="w-6 h-6 fill-current"
@@ -82,28 +81,39 @@ export const Navbar = () => {
                 </svg>
               </DisclosureButton>
 
-              <DisclosurePanel className="flex flex-wrap w-full my-5 lg:hidden">
-                <>
+              <Transition
+                show={open}
+                enter="transition duration-200 ease-out"
+                enterFrom="transform scale-95 opacity-0"
+                enterTo="transform scale-100 opacity-100"
+                leave="transition duration-150 ease-in"
+                leaveFrom="transform scale-100 opacity-100"
+                leaveTo="transform scale-95 opacity-0"
+              >
+                <DisclosurePanel className="flex flex-col w-full mt-2 bg-lightGreen shadow-lg rounded-lg lg:hidden">
                   <Link
                     href="/about"
-                    className="w-full px-4 py-2 -ml-4 text-primary rounded-md  hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100  focus:outline-none"
+                    onClick={close}
+                    className="w-full px-4 py-2 text-primary hover:bg-gray-100 focus:bg-gray-100 rounded-t-lg"
                   >
                     About Us
                   </Link>
                   <Link
                     href="/"
-                    className="w-full px-4 py-2 -ml-4 text-primary rounded-md  hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100  focus:outline-none"
+                    onClick={close}
+                    className="w-full px-4 py-2 text-primary hover:bg-gray-100 focus:bg-gray-100"
                   >
                     What We Do
                   </Link>
                   <Link
                     href="/"
-                    className="w-full px-4 py-2 -ml-4 text-primary rounded-md  hover:text-indigo-500 focus:text-indigo-500 focus:bg-indigo-100  focus:outline-none"
+                    onClick={close}
+                    className="w-full px-4 py-2 text-primary hover:bg-gray-100 focus:bg-gray-100 rounded-b-lg"
                   >
                     How To Support
                   </Link>
-                </>
-              </DisclosurePanel>
+                </DisclosurePanel>
+              </Transition>
             </>
           )}
         </Disclosure>
