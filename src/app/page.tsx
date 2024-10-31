@@ -2,9 +2,7 @@ import { Container } from "@/components/Container";
 import { Hero } from "@/components/Hero";
 import Image from "next/image";
 import heroImg1 from "../../public/img/jvanah/heros/1.jpg";
-import heroImg2 from "../../public/img/jvanah/heros/2.jpg";
 import heroImg3 from "../../public/img/jvanah/heros/3.jpg";
-import heroImg4 from "../../public/img/jvanah/heros/4.jpg";
 import { SectionTitle } from "@/components/SectionTitle";
 import { Benefits } from "@/components/Benefits";
 import { Video } from "@/components/Video";
@@ -48,39 +46,25 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      <SectionTitle
+        preTitle=""
+        title="Empowering Afghan Women Through Global Connections"
+      >
+        We understand the challenges faced by Afghan women, who often struggle
+        for their basic rights in a restrictive environment. Our initiative is
+        designed not just to educate but to create a support network that
+        fosters personal and professional growth. We connect individuals from
+        Sweden and other countries with Afghan women, facilitating the sharing
+        of experiences, skills, and cultural insights.
+      </SectionTitle>
+      <SectionTitle preTitle="" title="Standing Together for a Brighter Future">
+        At the Jvanah Initiative, we are committed to making a lasting impact.
+        By standing together and supporting one another, we can create a
+        brighter future for women and girls everywhere. Together, we believe we
+        can make a difference and pave the way for a better tomorrow.
+      </SectionTitle>
       {/* Second Image */}
-      <div className="flex p-8 lg:p-16 flex-col lg:flex-row lg:border-none border-b-2 border-primaryGreen border-spacing-6">
-        <div
-          className="flex-1 items-center 
- "
-        >
-          <div className="flex h-full justify-center items-center ">
-            <p className="py-5 text-xl leading-normal text-primary lg:text-xl xl:text-2xl text-center ">
-              We understand the challenges faced by Afghan women, who often
-              struggle for their basic rights in a restrictive environment. Our
-              initiative is designed not just to educate but to create a support
-              network that fosters personal and professional growth. We connect
-              individuals from Sweden and other countries with Afghan women,
-              facilitating the sharing of experiences, skills, and cultural
-              insights.
-            </p>
-          </div>
-        </div>
-        <div className="flex-1 relative ">
-          <div className="w-full sm:w-1/2 lg:w-2/3 relative h-full m-auto lg:mr-0">
-            <Image
-              src={heroImg2}
-              // width="5000"
-              // fill={true}
-              style={{ objectFit: "fill" }}
-              alt="Girl reading a book - Image"
-              loading="eager"
-              placeholder="blur"
-            />
-          </div>
-        </div>
-      </div>
-      {/* Third Image */}
       <div className="flex p-8 lg:p-16 flex-col lg:flex-row lg:border-none border-b-2 border-primaryGreen border-spacing-6">
         <div className="flex-1 relative ">
           <div className="w-full sm:w-1/2 lg:w-2/3 relative h-full m-auto lg:ml-0">
@@ -113,36 +97,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      {/* Fourth Image */}
-      <div className="flex p-8 lg:p-16 flex-col lg:flex-row lg:border-none border-b-2 border-primaryGreen border-spacing-6">
-        <div
-          className="flex-1 items-center 
- "
-        >
-          <div className="flex h-full justify-center items-center ">
-            <p className="py-5 text-xl leading-normal text-primary lg:text-xl xl:text-2xl text-center ">
-              At the Jvanah Initiative, we are committed to making a lasting
-              impact. By standing together and supporting one another, we can
-              create a brighter future for women and girls everywhere. Together,
-              we believe we can make a difference and pave the way for a better
-              tomorrow.
-            </p>
-          </div>
-        </div>
-        <div className="flex-1 relative ">
-          <div className="w-full sm:w-1/2 lg:w-2/3 relative h-full m-auto lg:mr-0">
-            <Image
-              src={heroImg4}
-              // width="5000"
-              // fill={true}
-              style={{ objectFit: "fill" }}
-              alt="Girl reading a book - Image"
-              loading="eager"
-              placeholder="blur"
-            />
-          </div>
-        </div>
-      </div>
+
       <SectionTitle
         preTitle="Together"
         title="Let's empower her steps towards a brighter tomorrow"
