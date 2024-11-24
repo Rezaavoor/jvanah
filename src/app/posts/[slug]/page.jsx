@@ -78,7 +78,7 @@ export default function BlogPost({ params }) {
       <Image
         src={src}
         alt={alt || ""}
-        width={800}
+        width={600}
         height={600}
         className="rounded-lg max-w-full my-8 mx-auto"
         style={{ objectFit: "cover" }}
@@ -89,7 +89,9 @@ export default function BlogPost({ params }) {
       if (node.children.length === 1 && node.children[0].tagName === "img") {
         return <>{children}</>;
       }
-      return <p className="text-lg leading-relaxed my-4">{children}</p>;
+      return (
+        <p className="text-lg text-primary leading-relaxed my-4">{children}</p>
+      );
     },
     h1: ({ children }) => (
       <h1 className="text-4xl font-bold my-4 text-center">{children}</h1>
@@ -99,11 +101,11 @@ export default function BlogPost({ params }) {
 
   return (
     <div className="container mx-auto px-4 lg:px-8 py-16">
-      <article className="max-w-3xl mx-auto">
+      <article className="max-w-sm md:max-w-3xl mx-auto">
         <h1 className="text-center text-5xl font-bold mb-8">
           {post.data.title}
         </h1>
-        <p className="text-center text-gray-500 mb-12">{post.data.date}</p>
+        <p className="text-center text-primary mb-12">{post.data.date}</p>
         {post.data.image && (
           <div className="relative w-full h-64 md:h-96 mb-12">
             <Image
