@@ -1,27 +1,48 @@
+// pages/index.js
+
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
 import { Container } from "@/components/Container";
 import { Hero } from "@/components/Hero";
+import { Carousel } from "@/components/Carousel";
 import Image from "next/image";
 import heroImg1 from "../../public/img/jvanah/heros/1.jpg";
 import heroImg3 from "../../public/img/jvanah/heros/3.jpg";
 import { SectionTitle } from "@/components/SectionTitle";
-import { Benefits } from "@/components/Benefits";
 import { Video } from "@/components/Video";
-import { Testimonials } from "@/components/Testimonials";
-import { Faq } from "@/components/Faq";
 
-import { benefitOne, benefitTwo } from "@/components/data";
 export default function Home() {
+  const postsDirectory = path.join(process.cwd(), "content", "posts");
+  const filenames = fs.readdirSync(postsDirectory);
+
+  const blogPosts = filenames.map((filename) => {
+    const filePath = path.join(postsDirectory, filename);
+    const fileContents = fs.readFileSync(filePath, "utf8");
+    const { data } = matter(fileContents);
+    console.log(data.image);
+    return {
+      id: data.id,
+      title: data.title,
+      excerpt: data.excerpt,
+      date: data.date,
+      image: data.image,
+      slug: data.slug,
+    };
+  });
   return (
     <Container>
       <Hero />
+
+      {/* Carousel Component */}
+      <Carousel blogPosts={blogPosts} />
+
       {/* First Image */}
       <div className="flex p-8 lg:p-16 flex-col lg:flex-row lg:border-none border-b-2 border-primaryGreen border-spacing-6">
         <div className="flex-1 relative ">
           <div className="w-full sm:w-1/2 lg:w-2/3 relative h-full m-auto lg:ml-0">
             <Image
               src={heroImg1}
-              // width="5000"
-              // fill={true}
               style={{ objectFit: "fill" }}
               alt="Girl reading a book - Image"
               loading="eager"
@@ -29,13 +50,10 @@ export default function Home() {
             />
           </div>
         </div>
-        <div
-          className="flex-1 items-center 
- "
-        >
-          <div className="flex h-full justify-center items-center ">
-            <p className="py-5 text-xl leading-normal text-primary lg:text-xl xl:text-2xl text-center ">
-              The <span className="text-primaryGreen ">Jvanah</span> Initiative
+        <div className="flex-1 items-center">
+          <div className="flex h-full justify-center items-center">
+            <p className="py-5 text-lg leading-normal text-primary lg:text-lg xl:text-xl text-center">
+              The <span className="text-primaryGreen">Jvanah</span> Initiative
               is dedicated to empowering women and girls globally, with a
               particular focus on those in Afghanistan. We believe that
               education is a fundamental right and a powerful tool for change.
@@ -58,20 +76,20 @@ export default function Home() {
         Sweden and other countries with Afghan women, facilitating the sharing
         of experiences, skills, and cultural insights.
       </SectionTitle>
+
       <SectionTitle preTitle="" title="Standing Together for a Brighter Future">
         At the Jvanah Initiative, we are committed to making a lasting impact.
         By standing together and supporting one another, we can create a
         brighter future for women and girls everywhere. Together, we believe we
         can make a difference and pave the way for a better tomorrow.
       </SectionTitle>
+
       {/* Second Image */}
       <div className="flex p-8 lg:p-16 flex-col lg:flex-row lg:border-none border-b-2 border-primaryGreen border-spacing-6">
         <div className="flex-1 relative ">
           <div className="w-full sm:w-1/2 lg:w-2/3 relative h-full m-auto lg:ml-0">
             <Image
               src={heroImg3}
-              // width="5000"
-              // fill={true}
               style={{ objectFit: "fill" }}
               alt="Girl reading a book - Image"
               loading="eager"
@@ -79,12 +97,9 @@ export default function Home() {
             />
           </div>
         </div>
-        <div
-          className="flex-1 items-center 
- "
-        >
-          <div className="flex h-full justify-center items-center ">
-            <p className="py-5 text-xl leading-normal text-primary lg:text-xl xl:text-2xl text-center ">
+        <div className="flex-1 items-center">
+          <div className="flex h-full justify-center items-center">
+            <p className="py-5 text-lg leading-normal text-primary lg:text-lg xl:text-xl text-center">
               In addition to our focus on education, we prioritize building
               confidence and a positive mindset. Our goal is to inspire young
               women to recognize their potential and become active participants
@@ -108,24 +123,8 @@ export default function Home() {
         education has been restricted. Together, let's empower her steps towards
         a brighter tomorrow.
       </SectionTitle>
+
       <Video videoId="jvanah_intro.mp4" />
-      {/*
-
-      <Benefits data={benefitOne} />
-      <Benefits imgPos="right" data={benefitTwo} />
-
-
-      <Video videoId="fZ0D0cnR88E" />
-
-
-      <Testimonials />
-
-      <SectionTitle preTitle="FAQ" title="Frequently Asked Questions">
-        Answer your customers possible questions here, it will increase the
-        conversion rate as well as support or chat requests.
-      </SectionTitle>
-
-      <Faq /> */}
     </Container>
   );
 }
