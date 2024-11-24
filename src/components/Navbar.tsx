@@ -44,7 +44,7 @@ export const Navbar = () => {
         isScrolled ? "border-b-[1px] border-primaryGreen" : "border-none"
       } z-50`}
     >
-      <nav className="container relative flex flex-wrap items-center justify-between p-2 lg:p-4 mx-auto lg:justify-between xl:px-1">
+      <nav className="container relative flex flex-wrap items-center justify-between  mx-auto lg:justify-between xl:px-1">
         {/* Logo */}
         <Link href="/">
           <span className="flex items-end space-x-2 text-2xl font-medium text-primary transition-all duration-500 ease-in-out hover:scale-125 relative w-14 h-14">
