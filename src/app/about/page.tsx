@@ -1,17 +1,10 @@
 "use client";
 
 import { Container } from "@/components/Container";
-import { Hero } from "@/components/Hero";
-import Image from "next/image";
-import heroImg1 from "../../../public/img/jvanah/heros/1.jpg";
-import { SectionTitle } from "@/components/SectionTitle";
-import { Benefits } from "@/components/Benefits";
-import { Video } from "@/components/Video";
-import { Testimonials } from "@/components/Testimonials";
-import { Faq } from "@/components/Faq";
-
-import { benefitOne, benefitTwo } from "@/components/data";
 import { ProfileContainer } from "@/components/ProfileContainer";
+import Image from "next/image";
+import teamImage from "../../../public/img/jvanah/jvanah-team.png"; // Corrected the image path
+
 export default function AboutUs() {
   const profiles = [
     {
@@ -26,7 +19,7 @@ export default function AboutUs() {
       name: "Zahra",
       title: "Event Manager",
       description: [
-        "As an Afghan photographer and visual storyteller, I've always had on my mind to make a small difference in someone's life and that's why i joined Jvanah's team. I'm glad to work as event manager with winderful people",
+        "As an Afghan photographer and visual storyteller, I've always had on my mind to make a small difference in someone's life and that's why I joined Jvanah's team. I'm glad to work as an event manager with wonderful people.",
       ],
       img: "zahra.png",
     },
@@ -34,7 +27,7 @@ export default function AboutUs() {
       name: "Bjorn",
       title: "Strategic Advisor",
       description: [
-        "I specialize in strategic planning and transformational coaching for businesses, organizations and individuals. With a passion for empowering teams to reach their full potential, I am commited to supporting Jvanah's mission to inspire and give hope to our students",
+        "I specialize in strategic planning and transformational coaching for businesses, organizations, and individuals. With a passion for empowering teams to reach their full potential, I am committed to supporting Jvanah's mission to inspire and give hope to our students.",
       ],
       img: "bjorn.png",
     },
@@ -42,7 +35,7 @@ export default function AboutUs() {
       name: "Taha",
       title: "Legal Advisor",
       description: [
-        "I am passonate about technology and helping people, especially my sisters in Afghanistan who cannot go to school. Through my involvement in Jvanah I want to make a meaningful difference in their future",
+        "I am passionate about technology and helping people, especially my sisters in Afghanistan who cannot go to school. Through my involvement in Jvanah, I want to make a meaningful difference in their future.",
       ],
       img: "taha.png",
     },
@@ -50,7 +43,7 @@ export default function AboutUs() {
       name: "Sare",
       title: "Social Media Manager",
       description: [
-        "As a socilogy and anthropology student, I've always wondered how I can contribute to improving my community. Jvanah provides a great opportunity for me to support girls from my hometown through education",
+        "As a sociology and anthropology student, I've always wondered how I can contribute to improving my community. Jvanah provides a great opportunity for me to support girls from my hometown through education.",
       ],
       img: "sare.png",
     },
@@ -58,22 +51,47 @@ export default function AboutUs() {
       name: "Reza",
       title: "IT Manager",
       description: [
-        "As a young Afghan man having the privilege of living and studying in Sweden, I feel responsible for fighting injustice in my homeland. Jvanah allows me to do that and lets me help Afghan girls and women to get access to education. A fundamental right",
+        "As a young Afghan man having the privilege of living and studying in Sweden, I feel responsible for fighting injustice in my homeland. Jvanah allows me to do that and lets me help Afghan girls and women get access to education—a fundamental right.",
       ],
       img: "reza.png",
     },
   ];
+
   return (
     <Container>
-      {/* Introductory Section */}
-      <div className="text-center mb-12 mt-36">
+      {/* General Team Section */}
+      <div className="mb-12">
+        <div className="relative w-full h-64">
+          <Image
+            src={teamImage}
+            alt="Our Dedicated Team"
+            fill
+            style={{ objectFit: "cover" }}
+          />
+        </div>
+        <div className="mt-8 text-center">
+          <h2 className="text-3xl font-bold text-primary mb-4">
+            A Global Community of Support
+          </h2>
+          <p className="text-lg text-primary max-w-2xl mx-auto">
+            At Jvanah, we are blessed with the support of teachers, volunteers,
+            and supporters from around the world. Their dedication and passion
+            empower us to bring education and hope to women and girls in
+            Afghanistan. Together, we are making a difference, one lesson at a
+            time.
+          </p>
+        </div>
+      </div>
+
+      {/* Main Group Section */}
+      <div className="text-center mb-12">
         <h1 className="text-4xl font-bold text-primary mb-4">
-          Meet Our Team at Jvanah
+          Meet Our Main Group at Jvanah
         </h1>
         <p className="text-lg text-primary max-w-2xl mx-auto">
-          At Jvanah, we are proud to have a diverse and talented team dedicated
-          to help our women and girls in Afghanistan. Learn more about our team
-          members and their stories.
+          Our main group is a diverse and talented team dedicated to leading
+          Jvanah and its mission. Learn more about our team members and their
+          stories.
         </p>
       </div>
 
