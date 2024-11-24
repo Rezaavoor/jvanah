@@ -4,8 +4,8 @@ import jvanahLogo from "../../public/img/jvanah/logo.png";
 
 export const Hero = () => {
   return (
-    <div className="flex justify-center items-center w-full relative h-screen">
-      <div className="w-2/3 sm:w-1/2 md:w-1/3 relative h-full">
+    <div className="flex justify-center items-center w-full relative h-[50vh]">
+      <div className="w-2/3 sm:w-1/2 lg:w-1/4 relative h-full">
         <Image
           src={jvanahLogo}
           fill={true}
