@@ -94,13 +94,15 @@ export default function BlogPost({ params }) {
       );
     },
     h1: ({ children }) => (
-      <h1 className="text-4xl font-bold my-4 text-center">{children}</h1>
+      <h1 className="text-4xl text-primary font-bold my-4 text-center">
+        {children}
+      </h1>
     ),
     // ... other components
   };
 
   return (
-    <div className="container mx-auto px-4 lg:px-8 py-16">
+    <div className="container text-primary mx-auto px-4 lg:px-8 py-16">
       <article className="max-w-sm md:max-w-3xl mx-auto">
         <h1 className="text-center text-5xl font-bold mb-8">
           {post.data.title}
