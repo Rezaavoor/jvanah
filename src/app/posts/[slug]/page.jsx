@@ -1,35 +1,13 @@
-// app/posts/[slug]/page.tsx
+// app/posts/[slug]/page.jsx
 
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import { notFound } from "next/navigation";
-import { Metadata } from "next";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import Image from "next/image";
 import Link from "next/link";
-
-// Define the structure of your post's frontmatter
-interface PostData {
-  id: number;
-  title: string;
-  excerpt: string;
-  date: string;
-  image: string;
-  slug: string;
-}
-
-interface Post {
-  data: PostData;
-  content: string;
-}
-
-interface BlogPostProps {
-  params: {
-    slug: string;
-  };
-}
 
 export async function generateStaticParams() {
   const postsDirectory = path.join(process.cwd(), "content", "posts");
@@ -44,9 +22,7 @@ export async function generateStaticParams() {
   });
 }
 
-export async function generateMetadata({
-  params,
-}: BlogPostProps): Promise<Metadata> {
+export async function generateMetadata({ params }) {
   const { slug } = params;
   const post = getPostBySlug(slug);
 
@@ -71,7 +47,7 @@ export async function generateMetadata({
   };
 }
 
-function getPostBySlug(slug: string): Post | null {
+function getPostBySlug(slug) {
   const postsDirectory = path.join(process.cwd(), "content", "posts");
   const filenames = fs.readdirSync(postsDirectory);
 
@@ -81,14 +57,14 @@ function getPostBySlug(slug: string): Post | null {
     const { data, content } = matter(fileContents);
 
     if (data.slug === slug) {
-      return { data: data as PostData, content };
+      return { data, content };
     }
   }
 
   return null;
 }
 
-export default function BlogPost({ params }: BlogPostProps) {
+export default function BlogPost({ params }) {
   const { slug } = params;
   const post = getPostBySlug(slug);
 
@@ -98,7 +74,7 @@ export default function BlogPost({ params }: BlogPostProps) {
 
   // Custom components for rendering markdown content
   const components = {
-    img: ({ src, alt }: { src: string; alt?: string }) => (
+    img: ({ src, alt }) => (
       <Image
         src={src}
         alt={alt || ""}
@@ -109,38 +85,16 @@ export default function BlogPost({ params }: BlogPostProps) {
         sizes="(max-width: 768px) 100vw, 700px"
       />
     ),
-    p: ({ node, children }: { node: any; children: React.ReactNode }) => {
-      // Check if the paragraph only contains an image
+    p: ({ node, children }) => {
       if (node.children.length === 1 && node.children[0].tagName === "img") {
         return <>{children}</>;
       }
       return <p className="text-lg leading-relaxed my-4">{children}</p>;
     },
-    h1: ({ children }: { children: React.ReactNode }) => (
+    h1: ({ children }) => (
       <h1 className="text-4xl font-bold my-4 text-center">{children}</h1>
     ),
-    h2: ({ children }: { children: React.ReactNode }) => (
-      <h2 className="text-3xl font-semibold my-4">{children}</h2>
-    ),
-    h3: ({ children }: { children: React.ReactNode }) => (
-      <h3 className="text-2xl font-semibold my-4">{children}</h3>
-    ),
-    a: ({ href, children }: { href?: string; children: React.ReactNode }) => (
-      <a href={href} className="text-primaryGreen hover:underline">
-        {children}
-      </a>
-    ),
-    ul: ({ children }: { children: React.ReactNode }) => (
-      <ul className="list-disc list-inside my-4">{children}</ul>
-    ),
-    ol: ({ children }: { children: React.ReactNode }) => (
-      <ol className="list-decimal list-inside my-4">{children}</ol>
-    ),
-    blockquote: ({ children }: { children: React.ReactNode }) => (
-      <blockquote className="border-l-4 border-gray-300 pl-4 italic my-4">
-        {children}
-      </blockquote>
-    ),
+    // ... other components
   };
 
   return (
