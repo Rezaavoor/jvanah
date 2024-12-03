@@ -26,7 +26,7 @@ interface CarouselProps {
 
 export const Carousel: React.FC<CarouselProps> = ({ blogPosts }) => {
   return (
-    <div className="my-16  py-12">
+    <div className="my-16  pb-12">
       <h2 className="text-xl text-left font-bold mb-12 text-primary">
         Latest Events and News
       </h2>

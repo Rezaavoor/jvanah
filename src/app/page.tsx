@@ -32,7 +32,7 @@ export default function Home() {
   });
   return (
     <Container>
-      <Hero />
+      {/* <Hero /> */}
 
       {/* Carousel Component */}
       <Carousel blogPosts={blogPosts} />
