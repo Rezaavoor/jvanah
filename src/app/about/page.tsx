@@ -61,14 +61,6 @@ export default function AboutUs() {
     <Container>
       {/* General Team Section */}
       <div className="mb-12">
-        <div className="relative w-full h-64">
-          <Image
-            src={teamImage}
-            alt="Our Dedicated Team"
-            fill
-            style={{ objectFit: "cover" }}
-          />
-        </div>
         <div className="mt-8 text-center">
           <h2 className="text-3xl font-bold text-primary mb-4">
             A Global Community of Support
