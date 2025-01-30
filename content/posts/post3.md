@@ -2,12 +2,12 @@
 id: 3
 title: "Women in Afghanistan: A Struggle for Rights and Freedom"
 excerpt: "A recap of our insightful lecture on the history and current situation of women in Afghanistan, hosted by the Jvanah Initiative."
-date: "2024-01-15"
+date: "2025-01-15"
 image: "/img/posts/lecture-afghanistan/banner.png"
 slug: "women-in-afghanistan-lecture"
 ---
 
-We are honored to share the highlights from our recent lecture organized by the **Jvanah Initiative** in collaboration with **Hägerstensåsens medborgarhus**. On **January 15, 2024**, we gathered at the library in Hägerstensåsens medborgarhus to discuss the history and current challenges faced by women in Afghanistan.
+We are honored to share the highlights from our recent lecture organized by the **Jvanah Initiative** in collaboration with **Hägerstensåsens medborgarhus**. On **January 15, 2025**, we gathered at the library in Hägerstensåsens medborgarhus to discuss the history and current challenges faced by women in Afghanistan.
 
 ## Understanding Women’s Struggles in Afghanistan
 
