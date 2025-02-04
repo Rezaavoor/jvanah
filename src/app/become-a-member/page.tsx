@@ -50,13 +50,6 @@ const Page: React.FC = () => {
             foster confidence, and build a brighter future for Afghan women and
             girls.
           </p>
-          <Link
-            target="_blank"
-            href="https://docs.google.com/forms/d/e/1FAIpQLSepFD4AVJzYSM8Be-cJy5ovZVCMZ2Nz1p_ippN-6-vNYn7uOg/viewform"
-            className="inline-block px-6 py-3 text-lg font-semibold text-white bg-primary rounded-md shadow-md hover:bg-primaryGreen hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition duration-200"
-          >
-            Become a Member Now
-          </Link>
         </div>
         <div className="hidden lg:block lg:w-1/2">
           <Image
@@ -260,7 +253,7 @@ const Page: React.FC = () => {
             </p>
             <Link
               target="_blank"
-              href="https://docs.google.com/forms/d/136MEIP9djVl2NWlD7gYAemuUpTqUp4HZWWaCEoMKeB8/prefill"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSepFD4AVJzYSM8Be-cJy5ovZVCMZ2Nz1p_ippN-6-vNYn7uOg/viewform"
               className="inline-block px-6 py-3 text-lg font-semibold text-white bg-primary rounded-md shadow-md hover:bg-primaryGreen hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition duration-200"
             >
               Become a Member Now
