@@ -5,7 +5,13 @@
 import React from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import {
+  Navigation,
+  Pagination,
+  Autoplay,
+  Parallax,
+  Zoom,
+} from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -51,33 +57,37 @@ export const Carousel: React.FC<CarouselProps> = ({ blogPosts }) => {
         }}
         className="px-8"
       >
-        {blogPosts.map((post) => (
-          <SwiperSlide key={post.id}>
-            <div className=" shadow-lg rounded-lg overflow-hidden">
-              <div className="relative h-64 w-full">
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  fill
-                  style={{ objectFit: "cover" }}
-                  className="hover:scale-105 transition-transform duration-300"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                />
+        {blogPosts
+          .toSorted((a, b) => b.id - a.id)
+          .map((post) => (
+            <SwiperSlide key={post.date}>
+              <div className=" shadow-lg rounded-lg overflow-hidden">
+                <div className="relative h-64 w-full">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    style={{ objectFit: "cover" }}
+                    className="hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-2xl font-semibold text-primary mb-4">
+                    {post.title}
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    {post.excerpt}
+                  </p>
+                  <Link href={`/posts/${post.slug}`}>
+                    <button className="mt-6 inline-block px-6 py-3 bg-primaryGreen text-white font-semibold rounded-full hover:bg-green-600 transition-colors duration-300">
+                      Read More
+                    </button>
+                  </Link>
+                </div>
               </div>
-              <div className="p-6">
-                <h3 className="text-2xl font-semibold text-primary mb-4">
-                  {post.title}
-                </h3>
-                <p className="text-gray-700 leading-relaxed">{post.excerpt}</p>
-                <Link href={`/posts/${post.slug}`}>
-                  <button className="mt-6 inline-block px-6 py-3 bg-primaryGreen text-white font-semibold rounded-full hover:bg-green-600 transition-colors duration-300">
-                    Read More
-                  </button>
-                </Link>
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
+            </SwiperSlide>
+          ))}
       </Swiper>
     </div>
   );
