@@ -38,11 +38,7 @@ export function Footer() {
           <div className="flex flex-col items-center text-primary">
             <div>Follow us</div>
             <div className="flex mt-5 space-x-10 ">
-              <a
-                href="mailto:jvanah.se@gmail.com"
-                target="_blank"
-                rel="noopener"
-              >
+              <a href="mailto:info@jvanah.se" target="_blank" rel="noopener">
                 <span className="sr-only">Twitter</span>
                 <Email size={33} />
               </a>
