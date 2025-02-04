@@ -3,13 +3,11 @@ id: 2
 title: "Jvanah Honored with 2024 Human Rights Diploma"
 excerpt: "Celebrating our recognition by the Stockholm UN Association for our work in promoting human rights through education."
 date: "2024-12-10"
-image: "/img/posts/human-rights-diploma/award.jpg"
+image: "/img/posts/human-rights-diploma/MR-diplom-2024.png"
 slug: "jvanah-human-rights-diploma"
 ---
 
 We are incredibly proud and honored to announce that the **Jvanah Initiative** has been awarded the 2024 Human Rights Diploma by the Stockholm UN Association. This prestigious recognition was presented to us during the annual Human Rights Day celebration on **December 10th, 2024**.
-
-![Award Ceremony](/img/posts/human-rights-diploma/ceremony.jpeg)
 
 ## A Night to Remember
 
@@ -23,7 +21,7 @@ Receiving this diploma is a testament to the hard work and dedication of our tea
 
 The evening also provided an opportunity for members and guests to network and celebrate the achievements of the diploma recipients. We extend our heartfelt thanks to everyone who attended and made the night special, including Jens Petersson, our award recipients, and **Restaurang Legumes** for their vital contribution to the event.
 
-![Group Photo](/img/posts/human-rights-diploma/group-photo.jpeg)
+![Award Photo](/img/posts/human-rights-diploma/award.jpg)
 
 ## Looking Forward
 
