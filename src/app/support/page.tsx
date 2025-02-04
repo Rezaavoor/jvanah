@@ -29,7 +29,7 @@ const Page: React.FC = () => {
         </p>
         <Link
           target="_blank"
-          href="https://docs.google.com/forms/d/136MEIP9djVl2NWlD7gYAemuUpTqUp4HZWWaCEoMKeB8/prefill"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSepFD4AVJzYSM8Be-cJy5ovZVCMZ2Nz1p_ippN-6-vNYn7uOg/viewform"
           className="inline-block px-6 py-3 text-lg font-semibold text-white bg-primary rounded-md shadow-md hover:bg-primaryGreen hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition duration-200"
         >
           Become a Member Now
@@ -48,10 +48,10 @@ const Page: React.FC = () => {
               We welcome partnerships with organizations that share our vision
               of empowering women and girls globally. Reach out to us at{" "}
               <a
-                href="mailto:jvanah.se@gmail.com"
+                href="mailto:info@jvanah.se"
                 className="text-primary underline font-semibold"
               >
-                jvanah.se@gmail.com
+                info@jvanah.se
               </a>{" "}
               to explore collaboration opportunities.
             </p>
@@ -74,13 +74,6 @@ const Page: React.FC = () => {
               Afghanistan by providing internet access, educational resources,
               and life-changing opportunities.
             </p>
-            <Link
-              target="_blank"
-              href="https://gofund.me/414a536b"
-              className="inline-block px-6 py-3 text-lg font-semibold text-white bg-primary rounded-md shadow-md hover:bg-primaryGreen hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition duration-200"
-            >
-              Donate on GoFundMe
-            </Link>
           </section>
 
           {/* Become a Volunteer */}
@@ -93,13 +86,6 @@ const Page: React.FC = () => {
               and time to help Afghan women and girls access quality education
               and self-development opportunities.
             </p>
-            <Link
-              target="_blank"
-              href="mailto:jvanah.se@gmail.com"
-              className="inline-block px-6 py-3 text-lg font-semibold text-white bg-primary rounded-md shadow-md hover:bg-primaryGreen hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition duration-200"
-            >
-              Contact Us by sending an email
-            </Link>
           </section>
           {/* Share Your Expertise */}
           <section className="flex flex-col items-center bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg p-8 rounded-lg shadow-lg">
@@ -145,10 +131,11 @@ const Page: React.FC = () => {
           empowered lives.
         </p>
         <Link
-          href="#support-options"
+          target="_blank"
+          href="https://gofund.me/414a536b"
           className="inline-block px-6 py-3 text-lg font-semibold text-white bg-primary rounded-md shadow-md hover:bg-primaryGreen hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition duration-200"
         >
-          Support Us Today!
+          Donate on GoFundMe
         </Link>
       </div>
     </div>
