@@ -7,23 +7,8 @@ export function Footer() {
   return (
     <div className="relative">
       <Container>
-        <div className="flex flex-col justify-center items-center text-center md:text-left max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5  bg-lighterGreen  lg:grid-cols-5">
+        <div className="flex flex-col justify-center items-center text-center md:text-left max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5  bg-lighterGreen text-primary  lg:grid-cols-5">
           <div className="lg:col-span-">
-            <div className="flex justify-center md:justify-start">
-              <Link
-                href="/"
-                className="flex justify-start items-end space-x-2 text-2xl font-medium text-primaryGreen dark:text-gray-100"
-              >
-                <Image
-                  src="/img/jvanah/logo.png"
-                  alt="N"
-                  width="32"
-                  height="32"
-                  className="w-16"
-                />
-                <span className="">Jvanah</span>
-              </Link>
-            </div>
             <div className="mt-4 text-center">
               <div>Contact:</div>
               <div className="font-semibold">
@@ -36,7 +21,7 @@ export function Footer() {
           <div className="flex flex-col items-center text-primary ">
             <div className="flex space-x-10 ">
               <a href="mailto:info@jvanah.se" target="_blank" rel="noopener">
-                <span className="sr-only">Twitter</span>
+                <span className="sr-only">Email</span>
                 <Email size={33} />
               </a>
               <a
