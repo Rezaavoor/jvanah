@@ -7,7 +7,7 @@ image: "/img/posts/photo-exhibition/photo1.jpeg"
 slug: "voice-for-womens-education-photo-exhibition"
 ---
 
-We are thrilled to share the highlights from our recent event organized by the **Jvanah Initiative**. On **November 3rd, 2024**, we hosted a special photo exhibition at Telefonplan 3 in Hägersten, Sweden, dedicated to being a voice for women's education in Afghanistan.
+We are thrilled to share the highlights from our recent event organized by the **Jvanah Organization**. On **November 3rd, 2024**, we hosted a special photo exhibition at Telefonplan 3 in Hägersten, Sweden, dedicated to being a voice for women's education in Afghanistan.
 
 ![Event Banner](/img/posts/photo-exhibition/event.jpeg)
 
@@ -43,7 +43,7 @@ We are immensely grateful to everyone who attended and contributed to making thi
 
 ## Join Us in Making a Difference
 
-While the event has concluded, our mission continues. We invite you to stay connected with the **Jvanah Initiative** and join us in our ongoing efforts to empower women through education.
+While the event has concluded, our mission continues. We invite you to stay connected with the **Jvanah Organization** and join us in our ongoing efforts to empower women through education.
 
 - **Follow us on social media** for updates on upcoming events and initiatives.
 - **Volunteer** your time or expertise to support our programs.
@@ -66,4 +66,4 @@ _This event series is proudly supported by Studio Ung and Songlines group._
 ---
 
 **Warm regards,**
-**The Jvanah Initiative Team**
+**The Jvanah Team**

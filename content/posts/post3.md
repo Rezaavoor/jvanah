@@ -1,13 +1,13 @@
 ---
 id: 3
 title: "Women in Afghanistan: A Struggle for Rights and Freedom"
-excerpt: "A recap of our insightful lecture on the history and current situation of women in Afghanistan, hosted by the Jvanah Initiative."
+excerpt: "A recap of our insightful lecture on the history and current situation of women in Afghanistan, hosted by Jvanah."
 date: "2025-01-15"
 image: "/img/posts/lecture-afghanistan/banner.png"
 slug: "women-in-afghanistan-lecture"
 ---
 
-We are honored to share the highlights from our recent lecture organized by the **Jvanah Initiative** in collaboration with **Hägerstensåsens medborgarhus**. On **January 15, 2025**, we gathered at the library in Hägerstensåsens medborgarhus to discuss the history and current challenges faced by women in Afghanistan.
+We are honored to share the highlights from our recent lecture organized by the **Jvanah Organization** in collaboration with **Hägerstensåsens medborgarhus**. On **January 15, 2025**, we gathered at the library in Hägerstensåsens medborgarhus to discuss the history and current challenges faced by women in Afghanistan.
 
 ### Understanding Women’s Struggles in Afghanistan
 
@@ -39,7 +39,7 @@ Following the lecture, we invited attendees to participate in a discussion about
 
 ### Looking Forward
 
-We are incredibly grateful to all participants for their engagement and passion. The event reaffirmed the urgency of supporting Afghan women and ensuring their voices are heard. As the Jvanah Initiative, we remain committed to providing educational opportunities and raising awareness about the struggles faced by Afghan women.
+We are incredibly grateful to all participants for their engagement and passion. The event reaffirmed the urgency of supporting Afghan women and ensuring their voices are heard. As Jvanah, we remain committed to providing educational opportunities and raising awareness about the struggles faced by Afghan women.
 
 ## Join Us in Making a Difference
 
@@ -62,4 +62,4 @@ We extend our heartfelt thanks to:
 **Together, we can be a voice for Afghan women and their right to education and freedom.**
 
 **Warm regards,**  
-**The Jvanah Initiative Team**
+**The Jvanah Team**

@@ -7,7 +7,7 @@ image: "/img/posts/human-rights-diploma/MR-diplom-2024.png"
 slug: "jvanah-human-rights-diploma"
 ---
 
-We are incredibly proud and honored to announce that the **Jvanah Initiative** has been awarded the 2024 Human Rights Diploma by the Stockholm UN Association. This prestigious recognition was presented to us during the annual Human Rights Day celebration on **December 10th, 2024**.
+We are incredibly proud and honored to announce that the **Jvanah Organization** has been awarded the 2024 Human Rights Diploma by the Stockholm UN Association. This prestigious recognition was presented to us during the annual Human Rights Day celebration on **December 10th, 2024**.
 
 ### A Night to Remember
 
@@ -34,4 +34,4 @@ As we celebrate this recognition, we remain focused on our goal of promoting hum
 Together, we can make a difference and continue to champion the cause of human rights.
 
 **Warm regards,**
-**The Jvanah Initiative Team**
+**The Jvanah Team**
