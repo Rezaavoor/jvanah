@@ -35,12 +35,14 @@ export const ProfileContainer = (props: Readonly<ProfileContainerProps>) => {
         )}
         {name && <h2 className="text-2xl font-bold text-primary">{name}</h2>}
         {title && (
-          <h3 className="text-lg font-extralight text-primary mt-2">{title}</h3>
+          <h3 className="text-lg text-center font-extralight text-primary mt-2">
+            {title}
+          </h3>
         )}
         {children && (
           <div
             ref={contentRef}
-            className="text-left text-primary mt-4 space-y-4 overflow-hidden transition-all duration-500 ease-in-out"
+            className="text-center text-primary mt-4 space-y-4 overflow-hidden transition-all duration-500 ease-in-out"
             style={{
               maxHeight: isExpanded ? contentHeight : "5rem",
             }}
