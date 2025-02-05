@@ -2,22 +2,28 @@
 
 import { Container } from "@/components/Container";
 import { ProfileContainer } from "@/components/ProfileContainer";
-import Image from "next/image";
-import teamImage from "../../../public/img/jvanah/jvanah-team.png"; // Corrected the image path
 
 export default function AboutUs() {
   const profiles = [
     {
       name: "Hena",
-      title: "Founder",
+      title: "President",
       description: [
         "As Hena, a proud resident of Sweden and a dedicated student of textile design, our roots trace back to the beautiful land of Afghanistan, a place filled with resilience and hope. Having experienced the profound impact of education firsthand, we are acutely aware of the struggles endured by women and girls in Afghanistan, unable to pursue their educational dreams. Driven by a deep sense of purpose, we have embarked on a personal mission to make a difference through Jvanah, an online education program specifically tailored for Afghan women. With Jvanah, we are determined to break down barriers and provide these women with the tools they need to continue their education, despite the challenges they face.",
       ],
       img: "hena.png",
     },
     {
+      name: "Taha",
+      title: "Vice President",
+      description: [
+        "I am passionate about technology and helping people, especially my sisters in Afghanistan who cannot go to school. Through my involvement in Jvanah, I want to make a meaningful difference in their future.",
+      ],
+      img: "taha.png",
+    },
+    {
       name: "Zahra",
-      title: "Event Manager",
+      title: "Course Manager",
       description: [
         "As an Afghan photographer and visual storyteller, I've always had on my mind to make a small difference in someone's life and that's why I joined Jvanah's team. I'm glad to work as an event manager with wonderful people.",
       ],
@@ -32,16 +38,8 @@ export default function AboutUs() {
       img: "bjorn.png",
     },
     {
-      name: "Taha",
-      title: "Legal Advisor",
-      description: [
-        "I am passionate about technology and helping people, especially my sisters in Afghanistan who cannot go to school. Through my involvement in Jvanah, I want to make a meaningful difference in their future.",
-      ],
-      img: "taha.png",
-    },
-    {
       name: "Sare",
-      title: "Social Media Manager",
+      title: "Social Media Account Representative",
       description: [
         "As a sociology and anthropology student, I've always wondered how I can contribute to improving my community. Jvanah provides a great opportunity for me to support girls from my hometown through education.",
       ],
