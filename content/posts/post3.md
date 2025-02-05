@@ -9,7 +9,7 @@ slug: "women-in-afghanistan-lecture"
 
 We are honored to share the highlights from our recent lecture organized by the **Jvanah Initiative** in collaboration with **Hägerstensåsens medborgarhus**. On **January 15, 2025**, we gathered at the library in Hägerstensåsens medborgarhus to discuss the history and current challenges faced by women in Afghanistan.
 
-## Understanding Women’s Struggles in Afghanistan
+### Understanding Women’s Struggles in Afghanistan
 
 The lecture provided a comprehensive historical overview of Afghan women’s rights, from the early 20th century to today’s challenges under Taliban rule. Our speakers detailed how each political era shaped the freedoms and limitations imposed on women.
 
