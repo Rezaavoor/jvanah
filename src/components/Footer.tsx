@@ -7,13 +7,12 @@ export function Footer() {
   return (
     <div className="relative">
       <Container>
-        <div className="flex justify-center max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5  border-primaryGreen  lg:grid-cols-5">
-          {/* <div className="lg:col-span-2">
-            <div>
-              {" "}
+        <div className="flex flex-col justify-center items-center text-center md:text-left max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5  bg-lighterGreen  lg:grid-cols-5">
+          <div className="lg:col-span-">
+            <div className="flex justify-center md:justify-start">
               <Link
                 href="/"
-                className="flex justify-start items-end space-x-2 text-2xl font-medium text-indigo-500 dark:text-gray-100"
+                className="flex justify-start items-end space-x-2 text-2xl font-medium text-primaryGreen dark:text-gray-100"
               >
                 <Image
                   src="/img/jvanah/logo.png"
@@ -25,19 +24,17 @@ export function Footer() {
                 <span className="">Jvanah</span>
               </Link>
             </div>
-
-            <div className="max-w-md mt-4 text-gray-500 dark:text-gray-400">
-              At the Jvanah Initiative, we are committed to making a lasting
-              impact. By standing together and supporting one another, we can
-              create a brighter future for women and girls everywhere. Together,
-              we believe we can make a difference and pave the way for a better
-              tomorrow.
+            <div className="mt-4 text-center">
+              <div>Contact:</div>
+              <div className="font-semibold">
+                <h1>info@jvanah.se</h1>
+                <h1>+46720398568</h1>
+              </div>
             </div>
-          </div> */}
+          </div>
 
-          <div className="flex flex-col items-center text-primary">
-            <div>Follow us</div>
-            <div className="flex mt-5 space-x-10 ">
+          <div className="flex flex-col items-center text-primary ">
+            <div className="flex space-x-10 ">
               <a href="mailto:info@jvanah.se" target="_blank" rel="noopener">
                 <span className="sr-only">Twitter</span>
                 <Email size={33} />
