@@ -98,6 +98,16 @@ export default function BlogPost({ params }) {
         {children}
       </h1>
     ),
+    h2: ({ children }) => (
+      <h1 className="text-2xl text-primary font-bold my-4 text-center">
+        {children}
+      </h1>
+    ),
+    h3: ({ children }) => (
+      <h1 className="text-xl text-primary font-bold my-4 text-center">
+        {children}
+      </h1>
+    ),
     // ... other components
   };
 
