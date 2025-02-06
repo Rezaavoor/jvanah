@@ -23,7 +23,7 @@ export default function AboutUs() {
     },
     {
       name: "Zahra",
-      title: "Course Manager",
+      title: "Finance Manager",
       description: [
         "As an Afghan photographer and visual storyteller, I've always had on my mind to make a small difference in someone's life and that's why I joined Jvanah's team. I'm glad to work as an event manager with wonderful people.",
       ],
