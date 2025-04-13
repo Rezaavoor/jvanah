@@ -1,14 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import { Container } from "@/components/Container";
-import { ProfileContainer } from "@/components/ProfileContainer";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Image from "next/image";
-import { useState } from "react";
 
 export default function AboutUs() {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null); // Track the expanded profile
@@ -20,7 +19,7 @@ export default function AboutUs() {
       description: [
         "As Hena, a proud resident of Sweden and a dedicated student of textile design, our roots trace back to the beautiful land of Afghanistan, a place filled with resilience and hope. Having experienced the profound impact of education firsthand, we are acutely aware of the struggles endured by women and girls in Afghanistan, unable to pursue their educational dreams. Driven by a deep sense of purpose, we have embarked on a personal mission to make a difference through Jvanah, an online education program specifically tailored for Afghan women. With Jvanah, we are determined to break down barriers and provide these women with the tools they need to continue their education, despite the challenges they face.",
       ],
-      img: "hena.png",  // Updated image path
+      img: "hena.png",
     },
     {
       name: "Sare",
@@ -28,7 +27,7 @@ export default function AboutUs() {
       description: [
         "As a sociology and anthropology student, I've always wondered how I can contribute to improving my community. Jvanah provides a great opportunity for me to support girls from my hometown through education.",
       ],
-      img: "sare.png",  // Updated image path
+      img: "sare.png",
     },
     {
       name: "Reza",
@@ -36,15 +35,15 @@ export default function AboutUs() {
       description: [
         "As a young Afghan man having the privilege of living and studying in Sweden, I feel responsible for fighting injustice in my homeland. Jvanah allows me to do that and lets me help Afghan girls and women get access to education—a fundamental right.",
       ],
-      img: "reza.png",  // Updated image path
+      img: "reza.png",
     },
     {
       name: "Shafiq",  
-      title: "Education Manager & IT",
+      title: "Education Manager",
       description: [
-        "As the founder and a passionate advocate for education, I aim to help Afghan girls and women overcome the barriers preventing them from accessing education. With a background in data science and a focus on security, I want to make a lasting impact on the lives of those in need through Jvanah.",
+        "As someone deeply committed to education with a background in Data Science, I am dedicated to helping Afghan women and girls overcome the barriers preventing them from accessing education. In a country where many women face severe limitations on their basic rights, I am motivated to contribute to their growth and create lasting change through Jvanah",
       ],
-      img: "Shafiq.JPG",  
+      img: "442.JPG",
     },
     {
       name: "Zahra",
@@ -52,16 +51,15 @@ export default function AboutUs() {
       description: [
         "As an Afghan photographer and visual storyteller, I've always had on my mind to make a small difference in someone's life and that's why I joined Jvanah's team. I'm glad to work as an event manager with wonderful people.",
       ],
-      img: "zahra.png",  // Updated image path
+      img: "zahra.png",
     },
- 
     {
       name: "Taha",
       title: "Coordinator",
       description: [
         "I am passionate about technology and helping people, especially my sisters in Afghanistan who cannot go to school. Through my involvement in Jvanah, I want to make a meaningful difference in their future.",
       ],
-      img: "taha.png",  // Updated image path
+      img: "taha.png",
     },
   ];
 
@@ -127,12 +125,13 @@ export default function AboutUs() {
               <div className="relative bg-white rounded-lg shadow-xl overflow-hidden p-6 mb-8 h-[450px]">
                 <div className="relative h-40 w-40 mx-auto rounded-full overflow-hidden border-4 border-gray-200">
                   <Image
-                    src={`/img/jvanah/profiles/${profile.img}`}  // Correct image path
+                    src={`/img/jvanah/profiles/${profile.img}`} // Correct image path
                     alt={profile.name}
-                    width={160}               // Adjusted width for profile picture
-                    height={160}              // Adjusted height
-                    objectFit="cover"         // Ensure the image fits correctly
-                    className="rounded-full"  // Circular profile image
+                    width={200} // Adjusted width for better quality
+                    height={200} // Adjusted height for better quality
+                    objectFit="cover" // Ensure the image fits correctly
+                    className="rounded-full" // Circular profile image
+                    quality={100} // Set the image quality to 100 for higher resolution
                   />
                 </div>
                 <div className="mt-4 text-center">
