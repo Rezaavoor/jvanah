@@ -28,6 +28,9 @@ const config: Config = {
     fontFamily: {
       sans: ["Inter", ...defaultTheme.fontFamily.sans],
       stock: [defaultTheme.fontFamily.sans],
+      chewy: ['Chewy', 'cursive'],
+      sarina: ['Sarina', 'sans-serif'],
+      lavishlyYours: ['Lavishly Yours', 'cursive'],
     },
   },
   variants: {

@@ -1,5 +1,3 @@
-// components/Carousel.js
-
 "use client";
 
 import React from "react";
@@ -9,8 +7,6 @@ import {
   Navigation,
   Pagination,
   Autoplay,
-  Parallax,
-  Zoom,
 } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -32,9 +28,9 @@ interface CarouselProps {
 
 export const Carousel: React.FC<CarouselProps> = ({ blogPosts }) => {
   return (
-    <div className="my-16  pb-12">
-      <h2 className="text-xl text-left font-bold mb-12 text-primary">
-        Latest Events and News
+    <div className="my-16 pb-12">
+      <h2 className="font-roboto text-3xl text-center font-bold mb-8 text-primary">
+        News and Events
       </h2>
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
@@ -61,7 +57,7 @@ export const Carousel: React.FC<CarouselProps> = ({ blogPosts }) => {
           .toSorted((a, b) => b.id - a.id)
           .map((post) => (
             <SwiperSlide key={post.date}>
-              <div className=" shadow-lg rounded-lg overflow-hidden">
+              <div className="shadow-lg rounded-lg overflow-hidden backdrop-blur-lg bg-white/30">
                 <div className="relative h-64 w-full">
                   <Image
                     src={post.image}
@@ -76,14 +72,16 @@ export const Carousel: React.FC<CarouselProps> = ({ blogPosts }) => {
                   <h3 className="text-2xl font-semibold text-primary mb-4">
                     {post.title}
                   </h3>
-                  <p className="text-gray-700 leading-relaxed">
+                  <p className="text-gray-700 leading-relaxed mb-4">
                     {post.excerpt}
                   </p>
-                  <Link href={`/posts/${post.slug}`}>
-                    <button className="mt-6 inline-block px-6 py-3 bg-primaryGreen text-white font-semibold rounded-full hover:bg-green-600 transition-colors duration-300">
-                      Read More
-                    </button>
-                  </Link>
+                  <div className="flex justify-center">
+                    <Link href={`/posts/${post.slug}`}>
+                      <button className="mt-4 inline-block px-6 py-2 bg-transparent text-black font-semibold rounded-full border-2 border-primaryGreen hover:bg-primaryGreen hover:text-white transition-all duration-300 ease-in-out transform hover:scale-105 shadow-lg backdrop-blur-md">
+                        Read More
+                      </button>
+                    </Link>
+                  </div>
                 </div>
               </div>
             </SwiperSlide>

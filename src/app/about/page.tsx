@@ -2,8 +2,17 @@
 
 import { Container } from "@/components/Container";
 import { ProfileContainer } from "@/components/ProfileContainer";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import Image from "next/image";
+import { useState } from "react";
 
 export default function AboutUs() {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null); // Track the expanded profile
+
   const profiles = [
     {
       name: "Hena",
@@ -11,39 +20,15 @@ export default function AboutUs() {
       description: [
         "As Hena, a proud resident of Sweden and a dedicated student of textile design, our roots trace back to the beautiful land of Afghanistan, a place filled with resilience and hope. Having experienced the profound impact of education firsthand, we are acutely aware of the struggles endured by women and girls in Afghanistan, unable to pursue their educational dreams. Driven by a deep sense of purpose, we have embarked on a personal mission to make a difference through Jvanah, an online education program specifically tailored for Afghan women. With Jvanah, we are determined to break down barriers and provide these women with the tools they need to continue their education, despite the challenges they face.",
       ],
-      img: "hena.png",
-    },
-    {
-      name: "Taha",
-      title: "Vice President",
-      description: [
-        "I am passionate about technology and helping people, especially my sisters in Afghanistan who cannot go to school. Through my involvement in Jvanah, I want to make a meaningful difference in their future.",
-      ],
-      img: "taha.png",
-    },
-    {
-      name: "Zahra",
-      title: "Finance Manager",
-      description: [
-        "As an Afghan photographer and visual storyteller, I've always had on my mind to make a small difference in someone's life and that's why I joined Jvanah's team. I'm glad to work as an event manager with wonderful people.",
-      ],
-      img: "zahra.png",
-    },
-    {
-      name: "Bjorn",
-      title: "Strategic Advisor",
-      description: [
-        "I specialize in strategic planning and transformational coaching for businesses, organizations, and individuals. With a passion for empowering teams to reach their full potential, I am committed to supporting Jvanah's mission to inspire and give hope to our students.",
-      ],
-      img: "bjorn.png",
+      img: "hena.png",  // Updated image path
     },
     {
       name: "Sare",
-      title: "Social Media Account Representative",
+      title: "Vice President",
       description: [
         "As a sociology and anthropology student, I've always wondered how I can contribute to improving my community. Jvanah provides a great opportunity for me to support girls from my hometown through education.",
       ],
-      img: "sare.png",
+      img: "sare.png",  // Updated image path
     },
     {
       name: "Reza",
@@ -51,9 +36,39 @@ export default function AboutUs() {
       description: [
         "As a young Afghan man having the privilege of living and studying in Sweden, I feel responsible for fighting injustice in my homeland. Jvanah allows me to do that and lets me help Afghan girls and women get access to education—a fundamental right.",
       ],
-      img: "reza.png",
+      img: "reza.png",  // Updated image path
+    },
+    {
+      name: "Shafiq",  
+      title: "Education Manager & IT",
+      description: [
+        "As the founder and a passionate advocate for education, I aim to help Afghan girls and women overcome the barriers preventing them from accessing education. With a background in data science and a focus on security, I want to make a lasting impact on the lives of those in need through Jvanah.",
+      ],
+      img: "Shafiq.JPG",  
+    },
+    {
+      name: "Zahra",
+      title: "Finance Manager",
+      description: [
+        "As an Afghan photographer and visual storyteller, I've always had on my mind to make a small difference in someone's life and that's why I joined Jvanah's team. I'm glad to work as an event manager with wonderful people.",
+      ],
+      img: "zahra.png",  // Updated image path
+    },
+ 
+    {
+      name: "Taha",
+      title: "Coordinator",
+      description: [
+        "I am passionate about technology and helping people, especially my sisters in Afghanistan who cannot go to school. Through my involvement in Jvanah, I want to make a meaningful difference in their future.",
+      ],
+      img: "taha.png",  // Updated image path
     },
   ];
+
+  // Function to toggle Read More / Read Less
+  const toggleDescription = (index: number) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
 
   return (
     <Container>
@@ -85,20 +100,67 @@ export default function AboutUs() {
         </p>
       </div>
 
-      {/* Profiles Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {profiles.map((profile, index) => (
-          <ProfileContainer
-            key={index}
-            img={profile.img}
-            name={profile.name}
-            title={profile.title}
-          >
-            {profile.description.map((paragraph, idx) => (
-              <p key={idx}>{paragraph}</p>
-            ))}
-          </ProfileContainer>
-        ))}
+      {/* Swiper Section for Profiles */}
+      <div className="mb-12">
+        <Swiper
+          modules={[Navigation, Pagination]}
+          spaceBetween={30}
+          slidesPerView={1}
+          loop={true}
+          navigation
+          pagination={{ clickable: true }}
+          breakpoints={{
+            640: {
+              slidesPerView: 1,
+            },
+            1024: {
+              slidesPerView: 2,
+            },
+            1440: {
+              slidesPerView: 3, // Display 3 profiles at once on large screens
+            },
+          }}
+          className="px-8"
+        >
+          {profiles.map((profile, index) => (
+            <SwiperSlide key={index}>
+              <div className="relative bg-white rounded-lg shadow-xl overflow-hidden p-6 mb-8 h-[450px]">
+                <div className="relative h-40 w-40 mx-auto rounded-full overflow-hidden border-4 border-gray-200">
+                  <Image
+                    src={`/img/jvanah/profiles/${profile.img}`}  // Correct image path
+                    alt={profile.name}
+                    width={160}               // Adjusted width for profile picture
+                    height={160}              // Adjusted height
+                    objectFit="cover"         // Ensure the image fits correctly
+                    className="rounded-full"  // Circular profile image
+                  />
+                </div>
+                <div className="mt-4 text-center">
+                  <h3 className="text-xl font-semibold text-primary mb-2">
+                    {profile.name}
+                  </h3>
+                  <p className="text-lg text-primary mb-4">{profile.title}</p>
+
+                  {/* Display full description or part of it based on expandedIndex */}
+                  <div className="text-gray-700 mb-4 h-[120px] overflow-hidden">
+                    {expandedIndex === index
+                      ? profile.description.map((paragraph, idx) => (
+                          <p key={idx}>{paragraph}</p>
+                        ))
+                      : `${profile.description[0].substring(0, 150)}...`}
+                  </div>
+
+                  <button
+                    onClick={() => toggleDescription(index)}
+                    className="text-primary hover:text-blue-500"
+                  >
+                    {expandedIndex === index ? "Read Less" : "Read More"}
+                  </button>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </Container>
   );

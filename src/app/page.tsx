@@ -1,4 +1,3 @@
-// pages/index.js
 
 import fs from "fs";
 import path from "path";
@@ -20,7 +19,6 @@ export default function Home() {
     const filePath = path.join(postsDirectory, filename);
     const fileContents = fs.readFileSync(filePath, "utf8");
     const { data } = matter(fileContents);
-    console.log(data.image);
     return {
       id: data.id,
       title: data.title,
@@ -30,99 +28,58 @@ export default function Home() {
       slug: data.slug,
     };
   });
+
   return (
     <Container>
-      {/* <Hero /> */}
+      {/* Section Title for Empowerment */}
+      <div className="flex flex-col items-center mb-8">
+        <Image
+          src="/img/jvanah/heros/21.jpg"
+          alt="Empowerment Image"
+          width={300}
+          height={300}
+          className="rounded-full shadow-lg mb-4 opacity-80"  // Adjust opacity here (e.g., 70%)
+        />
+        <SectionTitle preTitle="Together" title="Let's empower her steps towards a brighter tomorrow">
+          We invite you to join us in our efforts to create a brighter future for
+          all. By supporting us with your time or funding, you can help ensure
+          that education reaches every corner of the country where women's
+          education has been restricted. Together, let's empower her steps towards
+          a brighter tomorrow.
+        </SectionTitle>
 
-      {/* Carousel Component */}
-      <Carousel blogPosts={blogPosts} />
-
-      {/* First Image */}
-      <div className="flex p-8 lg:p-16 flex-col lg:flex-row lg:border-none border-b-2 border-primaryGreen border-spacing-6">
-        <div className="flex-1 relative ">
-          <div className="w-full sm:w-1/2 lg:w-2/3 relative h-full m-auto lg:ml-0">
-            <Image
-              src={heroImg1}
-              style={{ objectFit: "fill" }}
-              alt="Girl reading a book - Image"
-              loading="eager"
-              placeholder="blur"
-            />
-          </div>
+        {/* Image added inside the section after the SectionTitle */}
+        <div className="flex justify-center mb-8">
+          <Image
+            src="/img/jvanah/heros/44.png"
+            alt="Empowerment Image"
+            width={400}
+            height={300}
+            className=""
+          />
         </div>
-        <div className="flex-1 items-center">
-          <div className="flex h-full justify-center items-center">
-            <p className="py-5 text-lg leading-normal text-primary lg:text-lg xl:text-xl text-center">
-              The <span className="text-primaryGreen">Jvanah</span> Initiative
-              is dedicated to empowering women and girls globally, with a
-              particular focus on those in Afghanistan. We believe that
-              education is a fundamental right and a powerful tool for change.
-              Our mission is to provide access to online education, equipping
-              Afghan women and girls with the skills and confidence they need to
-              thrive in their communities.
+      </div>
+
+          {/* Add Carousel for blog posts */}
+          <Carousel blogPosts={blogPosts} />
+
+      {/* First Section (Jvanah Introduction) */}
+      <div className="flex flex-col lg:flex-row p-8 lg:p-16 text-center">
+        <div className="flex-1 items-center justify-center">
+          <div className="text-container">
+            <SectionTitle title="Standing Together for a Brighter Future" />
+            <p className="py-5 text-lg leading-normal text-primary lg:text-lg xl:text-xl">
+              The <span className="text-primaryGreen">Jvanah</span> Initiative is dedicated to empowering women and girls globally,
+              with a particular focus on those in Afghanistan. We believe that education is a fundamental right and a powerful tool for change.
+              Our mission is to provide access to online education, equipping Afghan women and girls with the skills and confidence they need to thrive in their communities.
+
+              In addition to our focus on education, we prioritize building confidence and a positive mindset. Our goal is to inspire young women to recognize their potential and become active participants in their communities. We also extend our support to those in need of self-development through events and programs that raise awareness and provide assistance. For those feeling lost and seeking support to start anew in Sweden, we ensure that all girls have the opportunity to learn and grow.
             </p>
           </div>
         </div>
       </div>
 
-      <SectionTitle
-        preTitle=""
-        title="Empowering Afghan Women Through Global Connections"
-      >
-        We understand the challenges faced by Afghan women, who often struggle
-        for their basic rights in a restrictive environment. Our initiative is
-        designed not just to educate but to create a support network that
-        fosters personal and professional growth. We connect individuals from
-        Sweden and other countries with Afghan women, facilitating the sharing
-        of experiences, skills, and cultural insights.
-      </SectionTitle>
-
-      <SectionTitle preTitle="" title="Standing Together for a Brighter Future">
-        At the Jvanah Initiative, we are committed to making a lasting impact.
-        By standing together and supporting one another, we can create a
-        brighter future for women and girls everywhere. Together, we believe we
-        can make a difference and pave the way for a better tomorrow.
-      </SectionTitle>
-
-      {/* Second Image */}
-      <div className="flex p-8 lg:p-16 flex-col lg:flex-row lg:border-none border-b-2 border-primaryGreen border-spacing-6">
-        <div className="flex-1 relative ">
-          <div className="w-full sm:w-1/2 lg:w-2/3 relative h-full m-auto lg:ml-0">
-            <Image
-              src={heroImg3}
-              style={{ objectFit: "fill" }}
-              alt="Girl reading a book - Image"
-              loading="eager"
-              placeholder="blur"
-            />
-          </div>
-        </div>
-        <div className="flex-1 items-center">
-          <div className="flex h-full justify-center items-center">
-            <p className="py-5 text-lg leading-normal text-primary lg:text-lg xl:text-xl text-center">
-              In addition to our focus on education, we prioritize building
-              confidence and a positive mindset. Our goal is to inspire young
-              women to recognize their potential and become active participants
-              in their communities. We also extend our support to those in need
-              of self-development through events and programs that raise
-              awareness and provide assistance. For those feeling lost and
-              seeking support to start anew in Sweden, we ensure that all girls
-              have the opportunity to learn and grow.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <SectionTitle
-        preTitle="Together"
-        title="Let's empower her steps towards a brighter tomorrow"
-      >
-        We invite you to join us in our efforts to create a brighter future for
-        all. By supporting us with your time or funding, you can help ensure
-        that education reaches every corner of the country where women's
-        education has been restricted. Together, let's empower her steps towards
-        a brighter tomorrow.
-      </SectionTitle>
+  
 
       <Video videoId="jvanah_intro.mp4" />
     </Container>
