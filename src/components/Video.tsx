@@ -12,15 +12,15 @@ export function Video({ videoId }: Readonly<VideoProps>) {
   if (!videoId) return null;
 
   return (
-    <div className="relative w-full h-[500px] max-w-4xl mx-auto overflow-hidden lg:mb-20 rounded-2xl bg-primaryGreen cursor-pointer bg-gradient-to-tr from-primaryGreen to-lightGreen">
+    <div className="relative w-full h-[500px] max-w-4xl mx-auto overflow-hidden lg:mb-20 rounded-2xl cursor-pointer shadow-[0px_10px_30px_rgba(0,0,0,0.3)] hover:shadow-[0px_20px_40px_rgba(0,0,0,0.5)] transition-shadow duration-300">
       {!playVideo && (
         <button
           onClick={() => setPlayVideo(!playVideo)}
-          className="absolute inset-auto w-16 h-16 text-white transform -translate-x-1/2 -translate-y-1/2 lg:w-28 lg:h-28 top-1/2 left-1/2"
+          className="absolute inset-auto w-16 h-16 text-black transform -translate-x-1/2 -translate-y-1/2 lg:w-28 lg:h-28 top-1/2 left-1/2 rounded-full shadow-xl hover:shadow-2xl"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="w-16 h-16  lg:w-28 lg:h-28"
+            className="w-16 h-16 lg:w-28 lg:h-28 text-red-500"
             viewBox="0 0 20 20"
             fill="currentColor"
           >
@@ -34,12 +34,12 @@ export function Video({ videoId }: Readonly<VideoProps>) {
         </button>
       )}
       {playVideo && (
-        <iframe
-          src={`./img/jvanah/${videoId}`}
-          title="Video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          className="w-full h-full aspect-video"
-        ></iframe>
+       <iframe
+       src={`./img/jvanah/${videoId}`}
+       title="Video player"
+       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+       className="w-full h-full rounded-lg object-cover" // Apply full width, height, rounded corners, and object-fit cover
+     ></iframe>
       )}
     </div>
   );

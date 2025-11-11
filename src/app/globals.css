@@ -1,19 +1,71 @@
+/* globals.css */
+
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Cherry+Bomb+One&family=Chewy&family=Sarina&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Splash&display=swap');
+
+
+
+/* Apply the base styles */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
-
 @layer base {
   html,
   body {
-    /* @apply dark:bg-trueGray-900; */
-    background: #DEECDC; /*lighterGreen*/
-    
+    background-color: #f7fcfe; /* Blended color */
+    font-family: 'Sarina', sans-serif; /* Apply default font globally */
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Caveat', cursive;
+
+    /* Make it responsive */
     @media screen and (max-width: 640px) {
       font-size: small;
-      
     }
   }
 }
 
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.caveat-font {
+  font-family: 'Caveat', cursive;
+}
+
+.signature-font {
+  font-family: 'Dancing Script', cursive;
+}
+
+.splash-regular {
+  font-family: 'Splash', cursive;
+}
+
+.cherry-bomb-one-regular {
+  font-family: 'Cherry Bomb One', system-ui;
+}
+
+.chewy-font {
+  font-family: 'Chewy', cursive;
+}
+
+.sarina-font {
+  font-family: 'Sarina', sans-serif;
+}
+
+.lavishly-yours-regular {
+  font-family: 'Lavishly Yours', cursive;
+}
+
+/* In your styles.css or global styles */
+.fade-in {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.fade-in-visible {
+  opacity: 1;
+}

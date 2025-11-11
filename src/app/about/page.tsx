@@ -1,9 +1,17 @@
 "use client";
 
+import { useState } from "react";
 import { Container } from "@/components/Container";
-import { ProfileContainer } from "@/components/ProfileContainer";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import Image from "next/image";
 
 export default function AboutUs() {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null); // Track the expanded profile
+
   const profiles = [
     {
       name: "Hena",
@@ -14,32 +22,8 @@ export default function AboutUs() {
       img: "hena.png",
     },
     {
-      name: "Taha",
-      title: "Vice President",
-      description: [
-        "I am passionate about technology and helping people, especially my sisters in Afghanistan who cannot go to school. Through my involvement in Jvanah, I want to make a meaningful difference in their future.",
-      ],
-      img: "taha.png",
-    },
-    {
-      name: "Zahra",
-      title: "Finance Manager",
-      description: [
-        "As an Afghan photographer and visual storyteller, I've always had on my mind to make a small difference in someone's life and that's why I joined Jvanah's team. I'm glad to work as an event manager with wonderful people.",
-      ],
-      img: "zahra.png",
-    },
-    {
-      name: "Bjorn",
-      title: "Strategic Advisor",
-      description: [
-        "I specialize in strategic planning and transformational coaching for businesses, organizations, and individuals. With a passion for empowering teams to reach their full potential, I am committed to supporting Jvanah's mission to inspire and give hope to our students.",
-      ],
-      img: "bjorn.png",
-    },
-    {
       name: "Sare",
-      title: "Social Media Account Representative",
+      title: "Vice President",
       description: [
         "As a sociology and anthropology student, I've always wondered how I can contribute to improving my community. Jvanah provides a great opportunity for me to support girls from my hometown through education.",
       ],
@@ -53,7 +37,36 @@ export default function AboutUs() {
       ],
       img: "reza.png",
     },
+    {
+      name: "Shafiq",  
+      title: "Education Manager",
+      description: [
+        "As someone deeply committed to education with a background in Data Science, I am dedicated to helping Afghan women and girls overcome the barriers preventing them from accessing education. In a country where many women face severe limitations on their basic rights, I am motivated to contribute to their growth and create lasting change through Jvanah",
+      ],
+      img: "442.JPG",
+    },
+    {
+      name: "Zahra",
+      title: "Finance Manager",
+      description: [
+        "As an Afghan photographer and visual storyteller, I've always had on my mind to make a small difference in someone's life and that's why I joined Jvanah's team. I'm glad to work as an event manager with wonderful people.",
+      ],
+      img: "zahra.png",
+    },
+    {
+      name: "Taha",
+      title: "Coordinator",
+      description: [
+        "I am passionate about technology and helping people, especially my sisters in Afghanistan who cannot go to school. Through my involvement in Jvanah, I want to make a meaningful difference in their future.",
+      ],
+      img: "taha.png",
+    },
   ];
+
+  // Function to toggle Read More / Read Less
+  const toggleDescription = (index: number) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
 
   return (
     <Container>
@@ -85,20 +98,68 @@ export default function AboutUs() {
         </p>
       </div>
 
-      {/* Profiles Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {profiles.map((profile, index) => (
-          <ProfileContainer
-            key={index}
-            img={profile.img}
-            name={profile.name}
-            title={profile.title}
-          >
-            {profile.description.map((paragraph, idx) => (
-              <p key={idx}>{paragraph}</p>
-            ))}
-          </ProfileContainer>
-        ))}
+      {/* Swiper Section for Profiles */}
+      <div className="mb-12">
+        <Swiper
+          modules={[Navigation, Pagination]}
+          spaceBetween={30}
+          slidesPerView={1}
+          loop={true}
+          navigation
+          pagination={{ clickable: true }}
+          breakpoints={{
+            640: {
+              slidesPerView: 1,
+            },
+            1024: {
+              slidesPerView: 2,
+            },
+            1440: {
+              slidesPerView: 3, // Display 3 profiles at once on large screens
+            },
+          }}
+          className="px-8"
+        >
+          {profiles.map((profile, index) => (
+            <SwiperSlide key={index}>
+              <div className="relative bg-white rounded-lg shadow-xl overflow-hidden p-6 mb-8 h-[450px]">
+                <div className="relative h-40 w-40 mx-auto rounded-full overflow-hidden border-4 border-gray-200">
+                  <Image
+                    src={`/img/jvanah/profiles/${profile.img}`} // Correct image path
+                    alt={profile.name}
+                    width={200} // Adjusted width for better quality
+                    height={200} // Adjusted height for better quality
+                    objectFit="cover" // Ensure the image fits correctly
+                    className="rounded-full" // Circular profile image
+                    quality={100} // Set the image quality to 100 for higher resolution
+                  />
+                </div>
+                <div className="mt-4 text-center">
+                  <h3 className="text-xl font-semibold text-primary mb-2">
+                    {profile.name}
+                  </h3>
+                  <p className="text-lg text-primary mb-4">{profile.title}</p>
+
+                  {/* Display full description or part of it based on expandedIndex */}
+                  <div className="text-gray-700 mb-4 h-[120px] overflow-hidden">
+                    {expandedIndex === index
+                      ? profile.description.map((paragraph, idx) => (
+                          <p key={idx}>{paragraph}</p>
+                        ))
+                      : `${profile.description[0].substring(0, 150)}...`}
+                  </div>
+
+                  <button
+                    onClick={() => toggleDescription(index)}
+                    className="text-primary hover:text-blue-500"
+                  >
+                    {expandedIndex === index ? "Read Less" : "Read More"}
+                  </button>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </Container>
   );

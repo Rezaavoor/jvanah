@@ -7,9 +7,9 @@ export function Footer() {
   return (
     <div className="relative">
       <Container>
-        <div className="flex flex-col justify-center items-center text-center md:text-left max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5  bg-lighterGreen text-primary  lg:grid-cols-5">
-          <div className="lg:col-span-">
-            <div className="mt-4 text-center">
+      <div className="flex flex-col justify-center items-center text-center md:text-left max-w-screen-xl grid-cols-1 gap-10 pt-10 mx-auto mt-5 bg-transparent backdrop-blur-md bg-opacity-30 rounded-lg">
+  <div className="lg:col-span-">
+            <div className="mt-4 text-center text-black"> {/* Text color set to black */}
               <div>Contact:</div>
               <div className="font-semibold">
                 <h1>info@jvanah.se</h1>
@@ -52,7 +52,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="my-10 text-sm text-center text-primary  mt-20">
+        <div className="my-10 text-sm text-center text-primary mt-20">
           Copyright © {new Date().getFullYear()}.
         </div>
       </Container>
