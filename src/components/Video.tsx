@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { Container } from "@/components/Container";
 
 interface VideoProps {
   videoId: string;
@@ -12,34 +11,35 @@ export function Video({ videoId }: Readonly<VideoProps>) {
   if (!videoId) return null;
 
   return (
-    <div className="relative w-full h-[500px] max-w-4xl mx-auto overflow-hidden lg:mb-20 rounded-2xl cursor-pointer shadow-[0px_10px_30px_rgba(0,0,0,0.3)] hover:shadow-[0px_20px_40px_rgba(0,0,0,0.5)] transition-shadow duration-300">
+    <div className="relative w-full max-w-4xl mx-auto aspect-video rounded-2xl overflow-hidden shadow-soft-lg group cursor-pointer">
       {!playVideo && (
         <button
-          onClick={() => setPlayVideo(!playVideo)}
-          className="absolute inset-auto w-16 h-16 text-black transform -translate-x-1/2 -translate-y-1/2 lg:w-28 lg:h-28 top-1/2 left-1/2 rounded-full shadow-xl hover:shadow-2xl"
+          onClick={() => setPlayVideo(true)}
+          className="absolute inset-0 z-10 flex items-center justify-center bg-navy-900/10 group-hover:bg-navy-900/20 transition-colors duration-300"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-16 h-16 lg:w-28 lg:h-28 text-red-500"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fillRule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
-              clipRule="evenodd"
-            />
-          </svg>
+          <div className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/90 backdrop-blur-sm shadow-soft-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+            <svg
+              className="w-6 h-6 md:w-8 md:h-8 text-sage-600 ml-1"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
           <span className="sr-only">Play Video</span>
         </button>
       )}
-      {playVideo && (
-       <iframe
-       src={`./img/jvanah/${videoId}`}
-       title="Video player"
-       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-       className="w-full h-full rounded-lg object-cover" // Apply full width, height, rounded corners, and object-fit cover
-     ></iframe>
+      {playVideo ? (
+        <iframe
+          src={`./img/jvanah/${videoId}`}
+          title="Video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          className="w-full h-full"
+        />
+      ) : (
+        <div className="w-full h-full bg-gradient-to-br from-sage-100 to-cream-100 flex items-center justify-center">
+          <span className="text-sm text-navy-300">Video preview</span>
+        </div>
       )}
     </div>
   );

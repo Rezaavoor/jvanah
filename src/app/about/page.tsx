@@ -2,165 +2,156 @@
 
 import { useState } from "react";
 import { Container } from "@/components/Container";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 import Image from "next/image";
+import { motion, AnimatePresence } from "framer-motion";
+
+const profiles = [
+  {
+    name: "Hena",
+    title: "President",
+    description:
+      "As Hena, a proud resident of Sweden and a dedicated student of textile design, our roots trace back to the beautiful land of Afghanistan, a place filled with resilience and hope. Having experienced the profound impact of education firsthand, we are acutely aware of the struggles endured by women and girls in Afghanistan, unable to pursue their educational dreams. Driven by a deep sense of purpose, we have embarked on a personal mission to make a difference through Jvanah, an online education program specifically tailored for Afghan women.",
+    img: "hena.png",
+  },
+  {
+    name: "Sare",
+    title: "Vice President",
+    description:
+      "As a sociology and anthropology student, I've always wondered how I can contribute to improving my community. Jvanah provides a great opportunity for me to support girls from my hometown through education.",
+    img: "sare.png",
+  },
+  {
+    name: "Reza",
+    title: "IT Manager",
+    description:
+      "As a young Afghan man having the privilege of living and studying in Sweden, I feel responsible for fighting injustice in my homeland. Jvanah allows me to do that and lets me help Afghan girls and women get access to education — a fundamental right.",
+    img: "reza.png",
+  },
+  {
+    name: "Shafiq",
+    title: "Education Manager",
+    description:
+      "As someone deeply committed to education with a background in Data Science, I am dedicated to helping Afghan women and girls overcome the barriers preventing them from accessing education. I am motivated to contribute to their growth and create lasting change through Jvanah.",
+    img: "442.JPG",
+  },
+  {
+    name: "Zahra",
+    title: "Finance Manager",
+    description:
+      "As an Afghan photographer and visual storyteller, I've always had on my mind to make a small difference in someone's life and that's why I joined Jvanah's team. I'm glad to work as an event manager with wonderful people.",
+    img: "zahra.png",
+  },
+  {
+    name: "Taha",
+    title: "Coordinator",
+    description:
+      "I am passionate about technology and helping people, especially my sisters in Afghanistan who cannot go to school. Through my involvement in Jvanah, I want to make a meaningful difference in their future.",
+    img: "taha.png",
+  },
+];
 
 export default function AboutUs() {
-  const [expandedIndex, setExpandedIndex] = useState<number | null>(null); // Track the expanded profile
-
-  const profiles = [
-    {
-      name: "Hena",
-      title: "President",
-      description: [
-        "As Hena, a proud resident of Sweden and a dedicated student of textile design, our roots trace back to the beautiful land of Afghanistan, a place filled with resilience and hope. Having experienced the profound impact of education firsthand, we are acutely aware of the struggles endured by women and girls in Afghanistan, unable to pursue their educational dreams. Driven by a deep sense of purpose, we have embarked on a personal mission to make a difference through Jvanah, an online education program specifically tailored for Afghan women. With Jvanah, we are determined to break down barriers and provide these women with the tools they need to continue their education, despite the challenges they face.",
-      ],
-      img: "hena.png",
-    },
-    {
-      name: "Sare",
-      title: "Vice President",
-      description: [
-        "As a sociology and anthropology student, I've always wondered how I can contribute to improving my community. Jvanah provides a great opportunity for me to support girls from my hometown through education.",
-      ],
-      img: "sare.png",
-    },
-    {
-      name: "Reza",
-      title: "IT Manager",
-      description: [
-        "As a young Afghan man having the privilege of living and studying in Sweden, I feel responsible for fighting injustice in my homeland. Jvanah allows me to do that and lets me help Afghan girls and women get access to education—a fundamental right.",
-      ],
-      img: "reza.png",
-    },
-    {
-      name: "Shafiq",  
-      title: "Education Manager",
-      description: [
-        "As someone deeply committed to education with a background in Data Science, I am dedicated to helping Afghan women and girls overcome the barriers preventing them from accessing education. In a country where many women face severe limitations on their basic rights, I am motivated to contribute to their growth and create lasting change through Jvanah",
-      ],
-      img: "442.JPG",
-    },
-    {
-      name: "Zahra",
-      title: "Finance Manager",
-      description: [
-        "As an Afghan photographer and visual storyteller, I've always had on my mind to make a small difference in someone's life and that's why I joined Jvanah's team. I'm glad to work as an event manager with wonderful people.",
-      ],
-      img: "zahra.png",
-    },
-    {
-      name: "Taha",
-      title: "Coordinator",
-      description: [
-        "I am passionate about technology and helping people, especially my sisters in Afghanistan who cannot go to school. Through my involvement in Jvanah, I want to make a meaningful difference in their future.",
-      ],
-      img: "taha.png",
-    },
-  ];
-
-  // Function to toggle Read More / Read Less
-  const toggleDescription = (index: number) => {
-    setExpandedIndex(expandedIndex === index ? null : index);
-  };
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
   return (
-    <Container>
-      {/* General Team Section */}
-      <div className="mb-12">
-        <div className="mt-8 text-center">
-          <h2 className="text-3xl font-bold text-primary mb-4">
-            A Global Community of Support
-          </h2>
-          <p className="text-lg text-primary max-w-2xl mx-auto">
-            At Jvanah, we are blessed with the support of teachers, volunteers,
-            and supporters from around the world. Their dedication and passion
-            empower us to bring education and hope to women and girls in
-            Afghanistan. Together, we are making a difference, one lesson at a
-            time.
-          </p>
-        </div>
-      </div>
+    <>
+      {/* Hero section */}
+      <section className="relative overflow-hidden">
+        <div className="absolute top-0 left-1/2 w-[600px] h-[600px] bg-sage-100/30 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+        <Container className="relative pt-16 pb-12 md:pt-24 md:pb-16">
+          <div className="text-center max-w-2xl mx-auto">
+            <span className="text-xs font-semibold uppercase tracking-widest text-sage-500 mb-3 block">
+              Our People
+            </span>
+            <h1 className="text-4xl md:text-5xl font-bold text-navy-900 mb-6 text-balance">
+              A Global Community of Support
+            </h1>
+            <p className="text-base md:text-lg text-navy-400 leading-relaxed">
+              At Jvanah, we are blessed with the support of teachers, volunteers,
+              and supporters from around the world. Their dedication and passion
+              empower us to bring education and hope to women and girls in
+              Afghanistan.
+            </p>
+          </div>
+        </Container>
+      </section>
 
-      {/* Main Group Section */}
-      <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold text-primary mb-4">
-          Meet Our Main Group at Jvanah
-        </h1>
-        <p className="text-lg text-primary max-w-2xl mx-auto">
-          Our main group is a diverse and talented team dedicated to leading
-          Jvanah and its mission. Learn more about our team members and their
-          stories.
-        </p>
-      </div>
+      {/* Team section */}
+      <section className="py-12 md:py-20">
+        <Container>
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-bold text-navy-900 mb-3">
+              Meet Our Team
+            </h2>
+            <p className="text-navy-400 max-w-lg mx-auto">
+              A diverse and talented team dedicated to leading Jvanah and its
+              mission.
+            </p>
+          </div>
 
-      {/* Swiper Section for Profiles */}
-      <div className="mb-12">
-        <Swiper
-          modules={[Navigation, Pagination]}
-          spaceBetween={30}
-          slidesPerView={1}
-          loop={true}
-          navigation
-          pagination={{ clickable: true }}
-          breakpoints={{
-            640: {
-              slidesPerView: 1,
-            },
-            1024: {
-              slidesPerView: 2,
-            },
-            1440: {
-              slidesPerView: 3, // Display 3 profiles at once on large screens
-            },
-          }}
-          className="px-8"
-        >
-          {profiles.map((profile, index) => (
-            <SwiperSlide key={index}>
-              <div className="relative bg-white rounded-lg shadow-xl overflow-hidden p-6 mb-8 h-[450px]">
-                <div className="relative h-40 w-40 mx-auto rounded-full overflow-hidden border-4 border-gray-200">
-                  <Image
-                    src={`/img/jvanah/profiles/${profile.img}`} // Correct image path
-                    alt={profile.name}
-                    width={200} // Adjusted width for better quality
-                    height={200} // Adjusted height for better quality
-                    objectFit="cover" // Ensure the image fits correctly
-                    className="rounded-full" // Circular profile image
-                    quality={100} // Set the image quality to 100 for higher resolution
-                  />
-                </div>
-                <div className="mt-4 text-center">
-                  <h3 className="text-xl font-semibold text-primary mb-2">
-                    {profile.name}
-                  </h3>
-                  <p className="text-lg text-primary mb-4">{profile.title}</p>
-
-                  {/* Display full description or part of it based on expandedIndex */}
-                  <div className="text-gray-700 mb-4 h-[120px] overflow-hidden">
-                    {expandedIndex === index
-                      ? profile.description.map((paragraph, idx) => (
-                          <p key={idx}>{paragraph}</p>
-                        ))
-                      : `${profile.description[0].substring(0, 150)}...`}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {profiles.map((profile, index) => (
+              <motion.div
+                key={profile.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+              >
+                <div className="group bg-white rounded-2xl shadow-soft hover:shadow-soft-lg transition-all duration-300 overflow-hidden">
+                  {/* Profile image */}
+                  <div className="relative pt-8 flex justify-center">
+                    <div className="w-28 h-28 rounded-full overflow-hidden ring-3 ring-sage-100 shadow-soft">
+                      <Image
+                        src={`/img/jvanah/profiles/${profile.img}`}
+                        alt={profile.name}
+                        width={150}
+                        height={150}
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
                   </div>
 
-                  <button
-                    onClick={() => toggleDescription(index)}
-                    className="text-primary hover:text-blue-500"
-                  >
-                    {expandedIndex === index ? "Read Less" : "Read More"}
-                  </button>
+                  {/* Content */}
+                  <div className="px-6 pt-4 pb-6 text-center">
+                    <h3 className="text-lg font-semibold text-navy-900">
+                      {profile.name}
+                    </h3>
+                    <p className="text-sm text-sage-600 font-medium mb-3">
+                      {profile.title}
+                    </p>
+
+                    <AnimatePresence mode="wait">
+                      <motion.p
+                        key={expandedIndex === index ? "expanded" : "collapsed"}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="text-sm text-navy-400 leading-relaxed"
+                      >
+                        {expandedIndex === index
+                          ? profile.description
+                          : `${profile.description.substring(0, 120)}...`}
+                      </motion.p>
+                    </AnimatePresence>
+
+                    <button
+                      onClick={() =>
+                        setExpandedIndex(
+                          expandedIndex === index ? null : index
+                        )
+                      }
+                      className="mt-3 text-xs font-medium text-sage-500 hover:text-sage-700 transition-colors"
+                    >
+                      {expandedIndex === index ? "Read less" : "Read more"}
+                    </button>
+                  </div>
                 </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
-      </div>
-    </Container>
+              </motion.div>
+            ))}
+          </div>
+        </Container>
+      </section>
+    </>
   );
 }

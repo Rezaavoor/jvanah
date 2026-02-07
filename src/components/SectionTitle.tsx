@@ -1,5 +1,4 @@
 import React from "react";
-import { Container } from "@/components/Container";
 
 interface SectionTitleProps {
   preTitle?: string;
@@ -10,28 +9,28 @@ interface SectionTitleProps {
 
 export const SectionTitle = (props: Readonly<SectionTitleProps>) => {
   return (
-    <Container
-      className={`flex w-full flex-col mt-4 ${
+    <div
+      className={`flex w-full flex-col ${
         props.align === "left" ? "" : "items-center justify-center text-center"
       }`}
     >
       {props.preTitle && (
-        <div className="text-sm font-bold tracking-wider text-primaryGreen uppercase">
+        <span className="text-xs font-semibold uppercase tracking-widest text-sage-500 mb-3">
           {props.preTitle}
-        </div>
+        </span>
       )}
 
       {props.title && (
-        <h2 className="max-w-2xl mt-3 text-3xl font-bold leading-snug tracking-tight text-primaryGreen lg:leading-tight lg:text-4xl ">
+        <h2 className="max-w-2xl text-3xl md:text-4xl font-bold leading-snug tracking-tight text-navy-900 text-balance">
           {props.title}
         </h2>
       )}
 
       {props.children && (
-        <p className="max-w-2xl py-4 text-lg leading-normal text-primary lg:text-xl xl:text-xl ">
+        <p className="max-w-2xl mt-4 text-base md:text-lg leading-relaxed text-navy-400">
           {props.children}
         </p>
       )}
-    </Container>
+    </div>
   );
 };

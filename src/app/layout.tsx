@@ -6,11 +6,16 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: "Jvanah",
-  description: "Jvanah Homepage",
+  title: "Jvanah — Empowering Through Education",
+  description:
+    "Jvanah Initiative is dedicated to empowering women and girls globally through education, with a focus on Afghanistan.",
 };
 
 export default function RootLayout({
@@ -19,13 +24,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+    <html lang="en" suppressHydrationWarning className={inter.variable}>
+      <body className="font-sans antialiased">
         <ThemeProvider attribute="class">
-          <Navbar />
-          <div className="pt-36">{children}</div>
-          <Footer />
-          {/* <PopupWidget /> */}
+          <div className="flex flex-col min-h-screen">
+            <Navbar />
+            <main className="flex-1 pt-20">{children}</main>
+            <Footer />
+          </div>
         </ThemeProvider>
       </body>
     </html>

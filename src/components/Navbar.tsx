@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { Disclosure } from "@headlessui/react";
+import { Disclosure, Transition } from "@headlessui/react";
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -12,14 +12,10 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 50);
+      setIsScrolled(window.scrollY > 20);
     };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const menuItems = [
@@ -31,91 +27,128 @@ export const Navbar = () => {
   ];
 
   return (
-    <div
-      className={`w-screen fixed transition-all duration-500 ease-in-out bg-transparent ${
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-out ${
         isScrolled
-          ? "border-b-[2px] border-primaryBlue shadow-lg shadow-black/5"
-          : "border-none"
-      } z-50 backdrop-blur-md bg-opacity-30 rounded-lg`}
+          ? "bg-white/80 backdrop-blur-xl shadow-soft-md border-b border-sage-100/50"
+          : "bg-transparent"
+      }`}
     >
       <Disclosure>
         {({ open, close }) => (
           <>
-            <nav className="container relative flex items-center justify-between mx-auto px-4 py-2 xl:px-1">
+            <nav className="max-w-6xl mx-auto px-5 sm:px-8 flex items-center justify-between h-16 md:h-18">
               {/* Logo */}
-              <Link href="/">
-                <span className="flex items-center justify-center text-2xl font-medium text-primary transition-all duration-500 ease-in-out hover:scale-125 relative w-14 h-14">
+              <Link
+                href="/"
+                className="flex items-center gap-2 group relative z-10"
+              >
+                <span className="relative w-10 h-10 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
                   <Image
                     src="/img/jvanah/logo.svg"
-                    alt="Logo"
-                    width={100}
-                    height={100}
+                    alt="Jvanah"
+                    width={40}
+                    height={40}
                     className="object-contain"
+                    priority
                   />
+                </span>
+                <span className="text-lg font-semibold tracking-tight text-navy-900">
+                  Jvanah
                 </span>
               </Link>
 
-              {/* Mobile Menu Toggle Button */}
-              <Disclosure.Button className="lg:hidden px-4 py-2 text-primary focus:outline-none">
-                <svg
-                  className="w-6 h-6 fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                >
-                  {open ? (
-                    <path
-                      fillRule="evenodd"
-                      clipRule="evenodd"
-                      d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 1 1 1.414 1.414l-4.828 4.829 4.828 4.828z"
-                    />
-                  ) : (
-                    <path
-                      fillRule="evenodd"
-                      d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
-                    />
-                  )}
-                </svg>
-              </Disclosure.Button>
-
-              {/* Desktop Menu */}
-              <div className="hidden text-center lg:flex lg:items-center">
-                <ul className="items-center justify-end flex-1 pt-6 list-none lg:pt-0 lg:flex">
-                  {menuItems.map((item) => (
-                    <li key={item.href} className="mr-3">
+              {/* Desktop links */}
+              <ul className="hidden lg:flex items-center gap-1">
+                {menuItems.map((item) =>
+                  item.isButton ? (
+                    <li key={item.href} className="ml-3">
                       <Link
                         href={item.href}
-                        className={`inline-block px-2 py-1 text-base font-normal text-primary no-underline rounded-md hover:bg-primary hover:text-lighterGreen transition-all duration-200 ease-in-out ${
+                        className={`inline-flex items-center px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
                           pathname === item.href
-                            ? "font-bold text-primaryGreen"
-                            : ""
-                        } ${item.isButton ? "font-semibold underline" : ""}`}
+                            ? "bg-sage-500 text-white shadow-green-glow"
+                            : "bg-sage-500/10 text-sage-700 hover:bg-sage-500 hover:text-white hover:shadow-green-glow"
+                        }`}
                       >
                         {item.label}
                       </Link>
                     </li>
-                  ))}
-                </ul>
-              </div>
+                  ) : (
+                    <li key={item.href}>
+                      <Link
+                        href={item.href}
+                        className={`relative inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
+                          pathname === item.href
+                            ? "text-sage-600 bg-sage-50"
+                            : "text-navy-600 hover:text-sage-600 hover:bg-sage-50/50"
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  )
+                )}
+              </ul>
+
+              {/* Mobile toggle */}
+              <Disclosure.Button className="lg:hidden relative z-10 p-2 -mr-2 rounded-lg text-navy-600 hover:bg-sage-50 transition-colors">
+                <span className="sr-only">Toggle menu</span>
+                <div className="w-5 h-5 flex flex-col justify-center items-center gap-[5px]">
+                  <span
+                    className={`block h-[1.5px] w-5 bg-current transition-all duration-300 origin-center ${
+                      open ? "rotate-45 translate-y-[3.25px]" : ""
+                    }`}
+                  />
+                  <span
+                    className={`block h-[1.5px] w-5 bg-current transition-all duration-300 ${
+                      open ? "opacity-0 scale-0" : ""
+                    }`}
+                  />
+                  <span
+                    className={`block h-[1.5px] w-5 bg-current transition-all duration-300 origin-center ${
+                      open ? "-rotate-45 -translate-y-[3.25px]" : ""
+                    }`}
+                  />
+                </div>
+              </Disclosure.Button>
             </nav>
 
-            {/* Mobile Menu Panel */}
-            <Disclosure.Panel className="flex flex-col w-full mt-2 bg-transparent shadow-lg rounded-lg lg:hidden px-4">
-              {menuItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => close()}
-                  className={`w-full px-4 py-2 text-primary hover:bg-gray-100 focus:bg-gray-100 text-center ${
-                    pathname === item.href ? "font-bold" : ""
-                  } ${item.isButton ? "underline" : ""}`}
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </Disclosure.Panel>
+            {/* Mobile panel */}
+            <Transition
+              enter="transition duration-200 ease-out"
+              enterFrom="opacity-0 -translate-y-2"
+              enterTo="opacity-100 translate-y-0"
+              leave="transition duration-150 ease-in"
+              leaveFrom="opacity-100 translate-y-0"
+              leaveTo="opacity-0 -translate-y-2"
+            >
+              <Disclosure.Panel className="lg:hidden bg-white/95 backdrop-blur-xl border-t border-sage-100/50 shadow-soft-lg">
+                <div className="max-w-6xl mx-auto px-5 py-4 space-y-1">
+                  {menuItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => close()}
+                      className={`block px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
+                        pathname === item.href
+                          ? "bg-sage-50 text-sage-600"
+                          : "text-navy-600 hover:bg-sage-50/50 hover:text-sage-600"
+                      } ${
+                        item.isButton
+                          ? "mt-2 text-center bg-sage-500/10 text-sage-700 hover:bg-sage-500 hover:text-white"
+                          : ""
+                      }`}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              </Disclosure.Panel>
+            </Transition>
           </>
         )}
       </Disclosure>
-    </div>
+    </header>
   );
 };
