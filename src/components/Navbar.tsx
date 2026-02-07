@@ -27,7 +27,7 @@ export const Navbar = () => {
     { href: "/whatwedo", label: "Mission" },
     { href: "/support", label: "Support" },
     { href: "/about", label: "About" },
-    { href: "/become-a-member", label: "Join", isButton: true },
+    { href: "/become-a-member", label: "Courses", isButton: true },
   ];
 
   return (
