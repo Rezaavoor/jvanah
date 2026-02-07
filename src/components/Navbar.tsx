@@ -38,24 +38,24 @@ export const Navbar = () => {
           : "border-none"
       } z-50 backdrop-blur-md bg-opacity-30 rounded-lg`}
     >
-      <nav className="container relative flex flex-wrap items-center justify-between mx-auto lg:justify-between xl:px-1">
-        {/* Logo */}
-        <Link href="/">
-          <span className="flex items-end space-x-2 text-2xl font-medium text-primary transition-all duration-500 ease-in-out hover:scale-125 relative w-14 h-14">
-            <Image
-              src="/img/jvanah/logo.svg"
-              alt="Logo"
-              width={100} // Adjusted logo size
-              height={100}
-              className="object-contain"
-            />
-          </span>
-        </Link>
+      <Disclosure>
+        {({ open, close }) => (
+          <>
+            <nav className="container relative flex items-center justify-between mx-auto px-4 py-2 xl:px-1">
+              {/* Logo */}
+              <Link href="/">
+                <span className="flex items-center justify-center text-2xl font-medium text-primary transition-all duration-500 ease-in-out hover:scale-125 relative w-14 h-14">
+                  <Image
+                    src="/img/jvanah/logo.svg"
+                    alt="Logo"
+                    width={100}
+                    height={100}
+                    className="object-contain"
+                  />
+                </span>
+              </Link>
 
-        {/* Mobile Menu Toggle Button */}
-        <Disclosure>
-          {({ open, close }) => (
-            <>
+              {/* Mobile Menu Toggle Button */}
               <Disclosure.Button className="lg:hidden px-4 py-2 text-primary focus:outline-none">
                 <svg
                   className="w-6 h-6 fill-current"
@@ -77,42 +77,45 @@ export const Navbar = () => {
                 </svg>
               </Disclosure.Button>
 
-              <Disclosure.Panel className="flex flex-col w-full mt-2 bg-transparent shadow-lg rounded-lg lg:hidden">
-                {menuItems.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => close()} // Close the menu after a menu item is clicked
-                    className={`w-full px-4 py-2 text-primary hover:bg-gray-100 focus:bg-gray-100 text-center ${
-                      pathname === item.href ? "font-bold" : ""
-                    } ${item.isButton ? "underline" : ""}`}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </Disclosure.Panel>
-            </>
-          )}
-        </Disclosure>
+              {/* Desktop Menu */}
+              <div className="hidden text-center lg:flex lg:items-center">
+                <ul className="items-center justify-end flex-1 pt-6 list-none lg:pt-0 lg:flex">
+                  {menuItems.map((item) => (
+                    <li key={item.href} className="mr-3">
+                      <Link
+                        href={item.href}
+                        className={`inline-block px-2 py-1 text-base font-normal text-primary no-underline rounded-md hover:bg-primary hover:text-lighterGreen transition-all duration-200 ease-in-out ${
+                          pathname === item.href
+                            ? "font-bold text-primaryGreen"
+                            : ""
+                        } ${item.isButton ? "font-semibold underline" : ""}`}
+                      >
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </nav>
 
-        {/* Desktop Menu */}
-        <div className="hidden text-center lg:flex lg:items-center">
-          <ul className="items-center justify-end flex-1 pt-6 list-none lg:pt-0 lg:flex">
-            {menuItems.map((item) => (
-              <li key={item.href} className="mr-3">
+            {/* Mobile Menu Panel */}
+            <Disclosure.Panel className="flex flex-col w-full mt-2 bg-transparent shadow-lg rounded-lg lg:hidden px-4">
+              {menuItems.map((item) => (
                 <Link
+                  key={item.href}
                   href={item.href}
-                  className={`inline-block px-2 py-1 text-base font-normal text-primary no-underline rounded-md hover:bg-primary hover:text-lighterGreen transition-all duration-200 ease-in-out ${
-                    pathname === item.href ? "font-bold text-primaryGreen" : ""
-                  } ${item.isButton ? "font-semibold underline" : ""}`}
+                  onClick={() => close()}
+                  className={`w-full px-4 py-2 text-primary hover:bg-gray-100 focus:bg-gray-100 text-center ${
+                    pathname === item.href ? "font-bold" : ""
+                  } ${item.isButton ? "underline" : ""}`}
                 >
                   {item.label}
                 </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </nav>
+              ))}
+            </Disclosure.Panel>
+          </>
+        )}
+      </Disclosure>
     </div>
   );
 };
