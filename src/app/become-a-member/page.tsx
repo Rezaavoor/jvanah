@@ -146,11 +146,12 @@ const Page: React.FC = () => {
               آموزش آنلاین
             </span>
             <h1 className="text-4xl md:text-5xl font-bold text-navy-900 mb-4 text-balance">
-              ثبت‌نام در دوره‌ها
+              ظرفیت دوره‌ها تکمیل شده است
             </h1>
             <p className="text-base md:text-lg text-navy-400 leading-relaxed mb-2">
-              هدف ما فراهم کردن آموزش در دسترس است که شما را با مهارت‌ها، دانش و
-              اعتماد به نفس جدید توانمند سازد.
+              متأسفانه ثبت‌نام دوره‌های فعلی به پایان رسیده و ظرفیت تکمیل شده
+              است. اما شما می‌توانید در لیست انتظار ثبت‌نام کنید تا به محض باز
+              شدن ظرفیت جدید، در اولویت قرار بگیرید.
             </p>
             <p className="text-sm text-navy-300 max-w-lg">
               تمام دوره‌ها به صورت{" "}
@@ -272,18 +273,18 @@ const Page: React.FC = () => {
 
             <div className="relative max-w-xl mx-auto">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                آماده شروع یادگیری هستید؟
+                می‌خواهید در دوره‌های بعدی شرکت کنید؟
               </h2>
               <p className="text-navy-200 mb-8 text-base leading-relaxed">
-                ثبت‌نام باز است. دوره خود را انتخاب کنید، فرم را پر کنید و به
-                جلسه بعدی بپیوندید. ظرفیت محدود است!
+                ظرفیت دوره‌های فعلی تکمیل شده است. با ثبت‌نام در لیست انتظار، به
+                محض باز شدن ظرفیت جدید به شما اطلاع خواهیم داد.
               </p>
               <Link
                 target="_blank"
                 href={REGISTRATION_FORM_URL}
                 className="inline-flex items-center px-8 py-3.5 text-sm font-semibold text-navy-900 bg-white rounded-full shadow-soft-lg hover:shadow-soft-xl hover:-translate-y-0.5 transition-all duration-300"
               >
-                ثبت‌نام کنید
+                ثبت‌نام در لیست انتظار
               </Link>
             </div>
           </div>
